@@ -53,8 +53,7 @@ ROOT_URLCONF = "VLN_JobHub.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [BASE_DIR / 'templates']
-        ,
+        "DIRS": [BASE_DIR / 'templates'],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -73,15 +72,15 @@ WSGI_APPLICATION = "VLN_JobHub.wsgi.application"
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 DATABASES = {'default':
-                 {'ENGINE': 'django.db.backends.postgresql',
-                  'NAME': 'postgres',
-                  'USER': 'vln2_assignment_groups_<group_number>_user',
-                  'PASSWORD': 'yourpassword',
-                  'HOST': 'verklegt-namskeid-ii.northeurope.cloudapp.azure.com',
-                  'PORT': '5432',
-                  'OPTIONS': {
+             {'ENGINE': 'django.db.backends.postgresql',
+              'NAME': 'postgres',
+              'USER': 'vln2_assignment_groups_<group_number>_user',
+              'PASSWORD': 'yourpassword',
+              'HOST': 'verklegt-namskeid-ii.northeurope.cloudapp.azure.com',
+              'PORT': '5432',
+              'OPTIONS': {
                       'options': '-c search_path=vln2_assignment_groups_<group_number>'}
-                  }
+              }
              }
 
 # Password validation
