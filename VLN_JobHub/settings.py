@@ -71,7 +71,7 @@ WSGI_APPLICATION = "VLN_JobHub.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-'''
+
 DATABASES = {'default':
              {'ENGINE': 'django.db.backends.postgresql',
               'NAME': 'postgres',
@@ -83,7 +83,7 @@ DATABASES = {'default':
                       'options': '-c search_path=vln2_assignment_groups_46'}
               }
              }
-'''
+
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
 
