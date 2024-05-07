@@ -126,3 +126,5 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 "Hvað er í gangi hérna?"
 
+
+
