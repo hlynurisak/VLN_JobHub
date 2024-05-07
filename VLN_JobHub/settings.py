@@ -75,12 +75,12 @@ WSGI_APPLICATION = "VLN_JobHub.wsgi.application"
 DATABASES = {'default':
              {'ENGINE': 'django.db.backends.postgresql',
               'NAME': 'postgres',
-              'USER': 'vln2_assignment_groups_<group_number>_user',
+              'USER': 'vln2_assignment_groups_46_user',
               'PASSWORD': 'yourpassword',
               'HOST': 'verklegt-namskeid-ii.northeurope.cloudapp.azure.com',
               'PORT': '5432',
               'OPTIONS': {
-                      'options': '-c search_path=vln2_assignment_groups_<group_number>'}
+                      'options': '-c search_path=vln2_assignment_groups_46'}
               }
              }
 '''
