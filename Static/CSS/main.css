@@ -1,7 +1,10 @@
 :root {
     --blue_color: #0F52BA;
+    --red_color: #DE1313;
+    --background_color: #FFFFFF;
 }
 
 .company {
+    color: var(--red_color);
     background-color: var(--blue_color);
 }
