@@ -22,4 +22,5 @@ urlpatterns = [
     path("home/", include("JobHub.urls")),
     path("companies/", include("company.urls")),
     path("joblistings/", include("joblistings.urls")),
+    path("users/", include("user.urls")),
 ]
