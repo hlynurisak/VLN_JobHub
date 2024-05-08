@@ -1,0 +1,7 @@
+:root {
+    --blue_color: #0F52BA;
+}
+
+.company {
+    background-color: var(--blue_color);
+}
