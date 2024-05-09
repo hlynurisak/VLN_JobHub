@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="card-header">
+        <h2>Welcome to Your Page</h2>
+    </div>
+    <div class="card-body">
+        <h4>{{ user.username }}</h4>
+        <p>{{ user.email }}</p>
+
+{% endblock %}

@@ -8,3 +8,7 @@
     color: var(--red_color);
     background-color: var(--blue_color);
 }
+
+.nav-item img {
+    height: 2em;
+}
