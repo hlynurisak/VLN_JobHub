@@ -6,9 +6,81 @@
 
 .company {
     color: var(--red_color);
-    background-color: var(--blue_color);
 }
 
 .nav-item img {
     height: 2em;
 }
+
+/* General Body Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f0f2f5;
+}
+
+/* Header Styles */
+header {
+    background-color: #ffffff;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.company {
+    text-align: center;
+    margin: 20px;
+}
+
+h2 {
+    color: #333;
+}
+
+/* Styling for each company card */
+.company-card {
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    margin: 20px;
+    padding: 20px;
+    display: inline-block;
+    width: calc(50% - 40px); /* Adjust width as necessary */
+}
+
+.company-card h4 {
+    color: #0056b3;
+    margin-top: 0;
+}
+
+.company-card p {
+    color: #666;
+}
+
+/* Search Bar Style */
+.search-bar {
+    padding: 10px 20px;
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+    width: 100%;
+    box-sizing: border-box;
+    border: none;
+    outline: none;
+    margin: 20px 0;
+}
+
+/* Style for icons and action items in the header */
+.icon {
+    padding: 10px;
+    float: right;
+    background: none;
+    border: none;
+}
+
+/* Clear floats */
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
