@@ -1,4 +1,10 @@
 {% extends 'base.html' %}
 {% block content %}
-    <h2>Welcome to the Jobhub App</h2>
+    <div class="company">
+        <h2>Welcome to the Jobhub App</h2>
+    </div>
+    {% for company in companies %}
+        <h4>{{ company.name }}</h4>
+        <p>{{ company.job_listing }}</p>
+    {% endfor %}
 {% endblock %}
