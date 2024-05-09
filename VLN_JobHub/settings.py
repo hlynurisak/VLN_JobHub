@@ -36,6 +36,9 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     'JobHub.apps.JobhubConfig',
+    'company.apps.CompanyConfig',
+    'joblistings.apps.JoblistingsConfig',
+    'user.apps.UserConfig',
 
 ]
 
