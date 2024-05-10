@@ -16,13 +16,23 @@
 .ul {
     list-style: none;
     padding: 0;
-    margin: 10em;
+    margin: 0;
     width: 100%;
     text-align: right;
 }
 
+li.nav-item {
+    margin-right: 20px;
+}
+
+li.nav-item:last-child {
+    margin-left: 60em;
+    margin-right: 8em;
+}
+
 .navbar-brand img {
     height: 4em;
+    margin-left: 6em;
     mix-blend-mode: multiply;
 }
 

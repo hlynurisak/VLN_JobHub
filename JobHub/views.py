@@ -11,4 +11,4 @@ companies = [
 ]
 # Create your views here.
 def index(request):
-    return render(request, 'JobHub/index.html', context= {'companies': companies})
+    return render(request, 'JobHub/home_page.html', context= {'companies': companies})
