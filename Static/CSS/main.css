@@ -13,11 +13,12 @@
     background-color: var(--blue_color);
 }
 
-.navbar-nav {
-    list-style: none outside none;
+.ul {
+    list-style: none;
     padding: 0;
-    margin: 0;
-    position: relative;
+    margin: 10em;
+    width: 100%;
+    text-align: right;
 }
 
 .navbar-brand img {
