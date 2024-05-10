@@ -12,7 +12,7 @@
 /*Navbar config*/
 
 .navbar {
-    height: 5em;
+    height: 5rem;
     background-color: var(--blue_color);
 }
 
@@ -25,7 +25,7 @@ ul.navbar-nav {
 }
 
 li.nav-item:first-child {
-    margin-left: 4em;
+    margin-left: 4rem;
 }
 
 li.nav-item {
@@ -37,22 +37,28 @@ li.nav-item:last-child {
 }
 
 .navbar-brand img {
-    height: 4em;
-    margin-left: 6em;
+    height: 4rem;
+    margin-left: 6rem;
     mix-blend-mode: multiply;
 }
 
 .nav-item img {
     border-radius: 4px;
-    height: 2em;
+    height: 2rem;
 }
 
 /* General Body Styles */
 body {
+    display: flex;
+    flex-direction: column;
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     background: #f0f2f5;
+}
+
+.content {
+    min-height: 80vh;
 }
 
 /* Header Styles */
@@ -60,6 +66,17 @@ header {
     background-color: #ffffff;
     padding: 20px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Footer Style */
+footer{
+    width: 100%;
+    min-height: 12rem;
+    background-color: var(--blue_color);
+}
+
+.footer-info{
+    background-color: var(--blue_color);
 }
 
 .company {
@@ -79,7 +96,7 @@ h2 {
     margin: 20px;
     padding: 20px;
     display: inline-block;
-    width: calc(50% - 40px); /* Adjust width as necessary */
+    width: calc(50% + 40px); /* Adjust width as necessary */
 }
 
 .company-card h4 {
@@ -106,3 +123,16 @@ h2 {
     display: table;
 }
 
+/* Home page formatting */
+
+#searchbar-container {
+    display: flex;
+    justify-content: center;
+}
+
+.search-bar{
+    width: 50%;
+    margin-top: 4rem;
+    padding: 8px;
+    border-radius: 25px;
+}

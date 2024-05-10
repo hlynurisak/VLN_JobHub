@@ -10,8 +10,11 @@
         <input type="text" class="search-bar" placeholder="Search...">
     </header>
     -->
+    
+    <div id="searchbar-container">
+        <input type="text" class="search-bar" placeholder="Search...">
+    </div>
     <div class="company">
-        <h2>Welcome to the Jobhub App</h2>
         {% for company in companies %}
             <div class="company-card">
                 <h4>{{ company.name }}</h4>
