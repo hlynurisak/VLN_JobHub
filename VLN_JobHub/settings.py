@@ -78,19 +78,19 @@ WSGI_APPLICATION = "VLN_JobHub.wsgi.application"
 #Ekki uncommenta þennan kóða, þá getum við ekki testað neitt, annaðhvort það eða
 #Laga tenginguna
 
-'''
+
 DATABASES = {'default':
              {'ENGINE': 'django.db.backends.postgresql',
               'NAME': 'postgres',
               'USER': 'vln2_assignment_groups_46_user',
-              'PASSWORD': 'yourpassword',
+              'PASSWORD': 'Uv2lOCKkP7',
               'HOST': 'verklegt-namskeid-ii.northeurope.cloudapp.azure.com',
               'PORT': '5432',
               'OPTIONS': {
                       'options': '-c search_path=vln2_assignment_groups_46'}
               }
              }
-'''
+
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
