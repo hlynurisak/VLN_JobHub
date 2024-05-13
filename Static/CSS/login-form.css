@@ -1,0 +1,17 @@
+.form-horizontal > div {
+    margin-top: 3em;
+}
+
+.login-form img {
+    border-radius: 4px;
+    height: 2rem;
+}
+
+.login-form{
+    margin-left: auto;
+}
+
+form .logout-btn{
+    color: red;
+    background-color: #FFFFFF;
+}
