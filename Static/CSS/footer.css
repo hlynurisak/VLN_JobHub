@@ -11,7 +11,7 @@ footer{
 
 .footer-content{
     display: flex;
-    width: 100%;
+    width: 60%;
     justify-content: space-around;
     margin-top: 30px;
 }

@@ -15,6 +15,12 @@
     background-color: var(--blue_color);
 }
 
+/*This container is specifically for the nav bar */
+
+.container-fluid {
+    width: 60%;
+}
+
 ul.navbar-nav {
     color: #FFFFFF;
     list-style: none;
@@ -37,7 +43,6 @@ li.nav-item {
 .navbar-brand img {
     height: 4rem;
     margin-left: 6rem;
-    mix-blend-mode: multiply;
 }
 
 .nav-link{

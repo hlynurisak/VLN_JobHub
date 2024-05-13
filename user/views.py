@@ -1,7 +1,6 @@
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, redirect
 
-
 # Create your views here.
 companies = [
     {'name': 'Coca Cola', 'job_listing': "Data Analyst"},
@@ -28,3 +27,10 @@ def register(request):
 
 def profile(request):
     return render(request, 'user/profile.html', context={'companies': companies})
+
+
+#Request for getting the logged in user's username
+def user_name(request):
+    if request.user.is_authenticated:
+        return {'user_name': request.user.username}
+    return {}

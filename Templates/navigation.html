@@ -12,12 +12,12 @@
       <!-- Login -->
         {% if user.is_authenticated %}
         <li class="login-form">
-            <a class="nav-link" href="{% url 'profile' %}"><img src="{% static 'images/user_page.png' %}" alt="User Page"/></a>
+            <a class="nav-link" href="{% url 'profile' %}"> {{ user_name }}</a>
         </li>
         <li class="logout-btn">
             <form action="{% url 'logout' %}" method="post">
                 {% csrf_token %}
-                <button type="submit" class="logout-btn">Logout</button>
+                <button type="submit" class="btn logout-btn">Logout</button>
             </form>
         </li>
         {% else %}
