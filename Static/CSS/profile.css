@@ -16,23 +16,23 @@
 
 .applied-jobs-container {
     display: flex;
-    flex-direction: column; /* Arrange items in a row */
-    align-items: center; /* Align items vertically in the center */
-    justify-content: start; /* Start aligning items from the start, adjusting as necessary */
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
     padding: 20px;
     box-sizing: border-box;
 }
 
 .applied-jobs-container {
-    flex: 1 1 40%; /* Flex grow, flex shrink, flex basis */
+    flex: 1 1 40%;
     padding-top: 80px;
 }
 
 .profile-pic {
-    width: 40%;
     display: flex;
-    align-items: center; /* Center the image vertically */
-    justify-content: center; /* Center the image horizontally in its div */
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
 
 .profile-pic img {
@@ -42,29 +42,29 @@
 }
 
 .personal-info {
-    flex: 1; /* Takes remaining space after the profile-pic */
+    flex: 1;
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Center content vertically */
+    justify-content: center;
 }
 
-/* Job container styling for better horizontal alignment */
+
 .applied-jobs-container {
-    align-items: flex-start; /* Align the job cards at the start of the flex container */
-    justify-content: center; /* Ensure that the content within is centered if less than full width */
+    align-items: flex-start;
+    justify-content: center;
 }
 
-/* Styling adjustments for responsiveness */
+
 @media (max-width: 768px) {
     .container {
         flex-direction: column;
     }
     .profile-info, .applied-jobs-container {
-        flex-basis: 100%; /* Each section takes full width on smaller screens */
-        justify-content: center; /* Ensure content is centered on smaller screens */
+        flex-basis: 100%;
+        justify-content: center;
     }
     .profile-info {
-        flex-direction: column; /* Stack elements vertically on smaller screens */
+        flex-direction: column;
     }
     .applied-jobs-container {
         padding-top: 20px;
