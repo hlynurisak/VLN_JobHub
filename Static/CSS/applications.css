@@ -2,10 +2,38 @@
 
 .container-applications {
     display: flex;
-    width: 70%;
+    width: 100%;
 }
 
 .application-info {
     display: flex;
     flex-direction: row;
+    margin-top: 4rem;
+}
+
+.application-logo {
+    height: 20rem;
+    width: 20rem;
+}
+
+.application-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 8rem;
+    margin-left: 6rem;
+}
+
+#job-title {
+    color: var(--blue_color);
+    font-weight: bold;
+}
+
+#job-company {
+    color: black;
+    font-weight: bold;
+}
+
+#job-location {
+    color: black;
 }
