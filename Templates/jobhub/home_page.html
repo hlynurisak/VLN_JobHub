@@ -6,8 +6,8 @@
         <input type="text" class="search-bar" placeholder="Search...">
     </div>
     <div class="jobs">
-        {% for Jobhub in JobHub %}
-            {% include 'jobhub/single_joblisting.html' with Jobhub=Jobhub %}
+        {% for job in JobHub %}
+            {% include 'jobhub/single_joblisting.html' with job=job %}
         {% endfor %}
     </div>
 
