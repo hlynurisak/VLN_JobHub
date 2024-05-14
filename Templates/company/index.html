@@ -1,7 +1,9 @@
 {% extends 'base.html' %}
 {% block content %}
-    <div class="company">
-        <h2>Welcome to the Company App</h2>
+    <h1 class="red">Companies</h1>
+    <div class="companies">
+        {% for company in comapany %}
+            {% include 'company/single_company.html' with company=company %}
+        {% endfor %}
     </div>
-
 {% endblock %}

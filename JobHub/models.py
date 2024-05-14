@@ -5,6 +5,9 @@ from company.models import Company
 class JobCategory(models.Model):
     name = models.CharField(max_length=255)
 
+    def __str__(self):
+        return self.name
+
 class Job(models.Model):
     name = models.CharField(max_length=255)
     description = models.CharField(max_length=255, blank=True)
@@ -12,7 +15,13 @@ class Job(models.Model):
     job_requirements = models.FloatField
     company = models.ForeignKey(Company, on_delete=models.CASCADE)
 
-class companyimage(models.Model):
-    name = models.CharField(max_length=9999)
+    def __str__(self):
+        return self.name
+
+class CompanyImage(models.Model):
+    image = models.CharField(max_length=9999)
     Job = models.ForeignKey(Job, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.image
 
