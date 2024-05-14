@@ -1,8 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
-    <h1 class="red">Companies</h1>
     <div class="companies">
-        {% for company in comapany %}
+        {% for company in company %}
             {% include 'company/single_company.html' with company=company %}
         {% endfor %}
     </div>

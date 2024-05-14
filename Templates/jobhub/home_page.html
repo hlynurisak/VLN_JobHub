@@ -1,14 +1,13 @@
 {% extends 'base.html' %}
 {% block content %}
-    <h1 class="red">Joblistings</h1>
-
     <div id="searchbar-container">
         <input type="text" class="search-bar" placeholder="Search...">
     </div>
-    <div class="jobs">
-        {% for job in JobHub %}
-            {% include 'jobhub/single_joblisting.html' with job=job %}
-        {% endfor %}
+    <div class="container-jobs">
+        <div class="jobs">
+            {% for job in JobHub %}
+                {% include 'jobhub/single_joblisting.html' with job=job %}
+            {% endfor %}
+        </div>
     </div>
-
 {% endblock %}

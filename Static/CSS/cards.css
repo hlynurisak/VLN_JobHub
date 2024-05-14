@@ -1,5 +1,32 @@
 /* This is for styling company and job application cards*/
 
+.container-jobs{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 5rem;
+}
+
+.jobs {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 70%;
+}
+
+/* Actual card */
+.joblisting {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    height: 4rem;
+    margin-bottom: 5rem;
+}
+
+.card-link {
+    display: flex;
+    justify-content: center;
+}
+
 .company-card {
     background: #ffffff;
     border-radius: 8px;
@@ -7,14 +34,16 @@
     margin: 20px;
     padding: 20px;
     display: inline-block;
-    width: calc(50% + 40px); /* Adjust width as necessary */
+    width: 18rem;
 }
 
-.company-card h4 {
+.company-card h1 {
+    font-size: 14px;
     color: #0056b3;
     margin-top: 0;
 }
 
 .company-card p {
+    font-size: 14px;
     color: #666;
 }
