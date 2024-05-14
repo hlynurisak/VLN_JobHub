@@ -80,24 +80,7 @@ h2 {
 }
 
 /* Styling for each company card */
-.company-card {
-    background: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    margin: 20px;
-    padding: 20px;
-    display: inline-block;
-    width: calc(50% + 40px); /* Adjust width as necessary */
-}
 
-.company-card h4 {
-    color: #0056b3;
-    margin-top: 0;
-}
-
-.company-card p {
-    color: #666;
-}
 
 /* Style for icons and action items in the header */
 .icon {
