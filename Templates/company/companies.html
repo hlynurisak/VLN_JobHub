@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div id="searchbar-container">
+        <input type="text" class="search-bar" placeholder="Search...">
+    </div>
+    <div class="container-companies">
+        <div class="companies">
+            {% for company in company %}
+                {% include 'company/single_company.html' with company=company %}
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

@@ -4,10 +4,6 @@
     --background_color: #FFFFFF;
 }
 
-.company {
-    color: var(--red_color);
-}
-
 /*Navbar config*/
 
 .navbar {
@@ -68,11 +64,6 @@ header {
     background-color: #ffffff;
     padding: 20px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-
-.company {
-    text-align: center;
-    margin: 20px;
 }
 
 h2 {
