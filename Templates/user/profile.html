@@ -3,12 +3,13 @@
 {% block content %}
     <div class="profile-container">
         <div class="profile-info">
-            <div class="profile-pic">
+            <div class="profile-pic-edit">
                 <img src="{% static 'images/user_page.png' %}" alt="User Profile Picture" />
+                <button class="edit-profile-btn">Edit Info</button>
             </div>
             <div class="personal-info">
                 <h4>Full Name</h4>
-                <p>John Ladiesman</p>
+                <p>{{ user_name }}</p>
                 <h4>Phone Number</h4>
                 <p>420 6969</p>
                 <h4>Email</h4>
@@ -16,27 +17,19 @@
             </div>
         </div>
         <div class="applied-jobs-container">
-            <h4>Applied Jobs</h4>
-            {% for company in companies %}
-                <div class="company-card">
-                    <h4>{{ company.name }}</h4>
-                    <p class="meta-info">Applied for: 10/05/2024</p>
-                    <p>{{ company.job_listing }}</p>
-                </div>
-            {% endfor %}
+            <div class="applied-jobs-title">
+                <h2>Applied Jobs</h2>
+            </div>
+            <div class="applied-cards-container">
+                {% for company in companies %}
+                    <div class="company-card">
+                        <h3>{{ company.name }}</h3>
+                        <p class="meta-info">Applied for: 10/05/2024</p>
+                        <p>{{ company.job_listing }}</p>
+                    </div>
+                {% endfor %}
+            </div>
         </div>
     </div>
-    <!--
-    <div class="applied-jobs-container">
-    <h4>Applied Jobs</h4>
-    {% for company in companies %}
-        <div class="company-card">
-            <h4>{{ company.name }}</h4>
-            <p class="meta-info">Applied for: 10/05/2024</p>
-            <p>{{ company.job_listing }}</p>
-        </div>
-    {% endfor %}
-    </div>
-    -->
 
 {% endblock %}

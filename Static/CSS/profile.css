@@ -5,13 +5,17 @@
 }
 
 .profile-info {
-    width: 60%;
+    width: 40%;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: start;
-    padding: 20px;
+    padding-top: 50px;
     box-sizing: border-box;
+}
+
+.edit-profile-btn {
+    margin-top: 5px;
 }
 
 .applied-jobs-container {
@@ -19,26 +23,39 @@
     flex-direction: column;
     align-items: center;
     justify-content: start;
-    padding: 20px;
     box-sizing: border-box;
-}
-
-.applied-jobs-container {
     flex: 1 1 40%;
     padding-top: 80px;
 }
 
-.profile-pic {
+.applied-jobs-title {
+    width: 100%;
+    text-align: center;
+}
+
+.applied-cards-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 5rem;
+    max-width: 80rem;
+}
+
+.applied-cards-container .company-card {
+    width: 40%;
+}
+
+.profile-pic-edit {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    width: 40%;
 }
 
-.profile-pic img {
-    width: 100%;
+.profile-pic-edit img {
+    width: 70%;
     height: auto;
-    padding: 10%;
 }
 
 .personal-info {
@@ -46,6 +63,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    width: 60%;
 }
 
 
