@@ -3,11 +3,11 @@
     justify-content: center;
 }
 
-#login-fields {
+form.form-horizontal{
     width: 10rem;
 }
 
-#login-fields > div {
+.form-horizontal > div {
     margin-top: 3rem;
 }
 
