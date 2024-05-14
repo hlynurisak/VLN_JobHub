@@ -1,0 +1,11 @@
+/* Application styling */
+
+.container-applications {
+    display: flex;
+    width: 70%;
+}
+
+.application-info {
+    display: flex;
+    flex-direction: row;
+}
