@@ -1,5 +1,19 @@
-.form-horizontal > div {
-    margin-top: 3em;
+.login-screen {
+    display: flex;
+    justify-content: center;
+}
+
+#login-fields {
+    width: 10rem;
+}
+
+#login-fields > div {
+    margin-top: 3rem;
+}
+
+#login-submit {
+    margin-left: 3rem;
+    margin-top: 1rem;
 }
 
 .login-form img {
