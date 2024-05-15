@@ -1,43 +1,22 @@
 /* This is for styling company and job application cards*/
-
-.container-jobs {
+.container-companies, .container-jobs {
     display: flex;
     justify-content: center;
+    height: auto;
     margin-bottom: 5rem;
 }
 
-.jobs {
+.companies, .jobs {
     display: flex;
     flex-wrap: wrap;
     width: 41rem;
 }
 
-.container-companies {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 5rem;
-}
-
-.companies {
-    display: flex;
-    flex-wrap: wrap;
-    width: 41rem;
-}
-
-.company {
+.company, .joblisting {
     display: flex;
     flex-direction: column;
     justify-items: center;
-    height: 4rem;
-    margin-bottom: 5rem;
-}
-
-/* Actual card */
-.joblisting {
-    display: flex;
-    flex-direction: column;
-    justify-items: center;
-    height: 4rem;
+    height: 10rem;
     margin-bottom: 5rem;
 }
 
@@ -47,14 +26,30 @@
 }
 
 .company-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     background: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    overflow: hidden;
     margin: 20px;
     padding: 20px;
-    display: inline-block;
     width: 18rem;
+    box-sizing: border-box;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.company-logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 6rem;
+    width: 10rem;
+    padding: 10px;
+    margin-bottom: 10px;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
 .company-img {
@@ -62,13 +57,7 @@
     max-height: 100%;
 }
 
-.company-card h1 {
-    font-size: 14px;
-    color: #0056b3;
-    margin-top: 0;
-}
-
 .company-card p {
     font-size: 14px;
-    color: #666;
+    color: #0056b3;
 }
