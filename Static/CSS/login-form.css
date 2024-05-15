@@ -3,14 +3,6 @@
     justify-content: center;
 }
 
-form.form-horizontal{
-    width: 10rem;
-}
-
-.form-horizontal > div {
-    margin-top: 3rem;
-}
-
 #login-submit {
     margin-left: 3rem;
     margin-top: 1rem;
