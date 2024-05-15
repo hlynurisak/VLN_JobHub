@@ -1,7 +1,11 @@
 <div class="well joblisting">
     <a class="card-link" href="{% url 'applications' job.id %}">
         <div class="company-card">
-            <img class="company-img" src="{{ jobhub.companyimage_set.first.image }}" alt="Company Img" />
+            {% with job.company.get_first_image as company_image %}
+                <div class="company-logo-container">
+                    <img class="company-img" src="{{ company_image }}" alt="Company Img" />
+                </div>
+            {% endwith %}
             <h1>{{ job.name }}</h1>
             <p>{{ job.description }}</p>
         </div>
