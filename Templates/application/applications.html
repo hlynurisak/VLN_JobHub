@@ -2,7 +2,11 @@
 {% block content %}
     <div class="container-applications">
         <div class="application-info">
-            <img class="application-logo" src="{{ job.companyimage_set.first.image }}" alt="{{ job.name }} Logo">
+            {% with job.company.get_first_image as company_image %}
+                <div class="application-logo-container">
+                    <img class="application-logo" src="{{ company_image }}" alt="{{ job.name }} Logo">
+                </div>
+            {% endwith %}
             <div class="application-title">
                 <p id="job-title">{{ job.description }}</p>
                 <p id="job-company">{{ job.name }}</p>

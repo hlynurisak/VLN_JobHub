@@ -11,16 +11,28 @@
     margin-top: 4rem;
 }
 
-.application-logo {
-    height: 20rem;
+.application-logo-container {
+    display: flex;
+    height: 15rem;
     width: 20rem;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    border: solid var(--blue_color) 2px;
+    border-radius: 1rem;
+    padding: 1rem;
+}
+
+.application-logo {
+    max-width: 100%;
+    max-height: 100%;
 }
 
 .application-title {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 8rem;
+    margin-top: 5rem;
     margin-left: 6rem;
 }
 
