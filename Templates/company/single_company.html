@@ -1,5 +1,5 @@
 <div class="well company">
-    <a class="card-link" href="#">
+    <a class="card-link" href="{% url 'company-info' company.id %}">
         <div class="company-card">
             {% with company.get_first_image as company_image  %}
                 <div class="company-logo-container">
