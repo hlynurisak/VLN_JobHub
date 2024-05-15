@@ -19,6 +19,16 @@ class Job(models.Model):
     def __str__(self):
         return self.name
 
+
+class JobRequirement(models.Model):
+    requirement = models.CharField(max_length=255)
+    Job = models.ForeignKey(Job, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.requirement
+
+
+
 class CompanyImage(models.Model):
     image = models.URLField(max_length=9999)
     company = models.ForeignKey(Company, related_name="images", on_delete=models.CASCADE)

@@ -18,23 +18,12 @@ footer{
 
 .footer-section {
     display: flex;
-    flex: 1; /* Adjusted from 0.5 for equal distribution */
+    flex: 1;
     color: #FFFFFF;
-    margin-right: 20px;
-    text-align: right;
-    padding-right: 8px;
+    margin-right: 3rem;
+    text-align: left;
     flex-direction: column;
     position: relative;
-}
-
-.footer-section::after {
-    content: "";
-    position: absolute;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    width: 2px; /* As the border width */
-    background-color: #FFFFFF; /* Same as the border color */
 }
 
 .footer-bottom{
