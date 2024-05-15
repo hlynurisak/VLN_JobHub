@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 
 import JobHub
+from JobHub.forms.jobhub_form import JobCreateForm
 from JobHub.models import Job
 
 
@@ -15,11 +16,11 @@ def get_job_by_id(request, id):
     })
 
 
-#def create_job(request):
-#    if request.method == 'POST':
-#        print(1)
-#   else:
-#        print(2)
-#    return render(request, 'JobHub/create_job.html', {
-#        'form': form
-#    })
+def create_joblisting(request):
+    if request.method == 'POST':
+        print(1)
+    else:
+        form = JobCreateForm
+    return render(request, 'JobHub/create_joblisting.html', {
+        'form': form
+    })

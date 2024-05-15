@@ -21,7 +21,7 @@ def register(request):
             return redirect('login')
 
     return render(request, 'user/register.html', {
-        'form': UserCreationForm()
+        'forms': UserCreationForm()
     })
 
 
