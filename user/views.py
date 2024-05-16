@@ -3,6 +3,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 
 from .forms import UpdateUserForm, UpdateProfileForm
+from .models import Profile
 
 # Create your views here.
 companies = [
@@ -20,11 +21,12 @@ def register(request):
     if request.method == 'POST':
         form = UserCreationForm(data=request.POST)
         if form.is_valid():
-            form.save()
+            user = form.save()
+            Profile.objects.create(user=user)
             return redirect('login')
 
     return render(request, 'user/register.html', {
-        'forms': UserCreationForm()
+        'form': UserCreationForm()
     })
 
 
