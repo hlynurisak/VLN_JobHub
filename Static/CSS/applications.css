@@ -118,13 +118,13 @@
     margin-top: 2rem;
     margin-bottom: 2rem;
     border-radius: 1rem;
-    padding: 1rem;
+    padding: 2rem;
     background-color: #FFFFFF;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: space-between;
 
 }
 
@@ -168,40 +168,80 @@
     background-color: var(--blue_color);
 }
 
-.application-form-tab-one {
+#application-form-tab-one {
     display: none;
 }
 
-.application-form-tab-two {
+#application-form-tab-two {
     display: none;
 }
 
-.application-form-tab-three {
+#application-form-tab-three {
     display: none;
 }
 
-.application-form-tab-four {
+#application-form-tab-four {
     display: none;
 }
 
-.application-form-tab-five {
+#application-form-tab-five {
     display: none;
 }
+
+.application-form-tab {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Input styling */
 
 .input-field-container {
     display: flex;
     flex-wrap: wrap;
     width: 50%;
-    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
     gap: 2rem;
+    margin: 0 auto
 }
 
 .input-field {
+    border: 2px solid var(--blue_color);
     border-radius: 1rem;
     padding: 5px;
+}
+
+.input-field-section {
+    padding: 2px;
 }
 
 .input-field-section p{
     color: var(--blue_color);
     font-weight: bold;
+}
+
+#cover-letter-field {
+    height: 16rem;
+    width: 62rem;
+}
+
+.form-button-container{
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    justify-content: space-between;
+
+}
+
+.back-btn {
+    background-color: var(--blue_color);
+    color: #FFFFFF;
+}
+
+.continue-btn {
+    background-color: var(--blue_color);
+    color: #FFFFFF;
 }
