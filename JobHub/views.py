@@ -30,6 +30,6 @@ def create_joblisting(request):
     })
 
 def delete_joblisting(request, id):
-    job = get_object_or_404(JobHub, pk=id)
+    job = get_object_or_404(Job, pk=id)
     job.delete()
     return redirect('/')

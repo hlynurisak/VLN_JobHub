@@ -7,6 +7,7 @@
                     <img class="application-logo" src="{{ company_image }}" alt="{{ job.name }} Logo">
                 </div>
             {% endwith %}
+            <a href="{% url 'delete_joblisting' job.id %}" class="black btn btn-primary">Delete Joblisting</a>
             <div class="application-title">
                 <p id="job-title">{{ job.name }}</p>
                 <p id="job-company">{{ job.company.name }}</p>
