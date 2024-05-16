@@ -122,7 +122,9 @@
     background-color: #FFFFFF;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
 
 }
 
@@ -143,9 +145,11 @@
 .application-button-container {
     display: flex;
     justify-content: space-between;
-    margin-top: 2rem;
+    align-items: flex-start;
     width: 90%;
-    height: 10rem;
+    height: auto;
+    margin-bottom: 1.5rem;
+    gap: 1rem;
 }
 
 .progress-bar-container {
@@ -154,6 +158,7 @@
     overflow: hidden;
     border-radius: 1em;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    justify-content: center;
 }
 
 .progress-bar {
