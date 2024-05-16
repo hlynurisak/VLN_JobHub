@@ -8,8 +8,8 @@
                 </div>
             {% endwith %}
             <div class="application-title">
-                <p id="job-title">{{ job.description }}</p>
-                <p id="job-company">{{ job.name }}</p>
+                <p id="job-title">{{ job.name }}</p>
+                <p id="job-company">{{ job.company.name }}</p>
                 <p id="job-location">{{ job.location }}</p>
             </div>
         </div>
@@ -27,7 +27,7 @@
                         <img class="application-form-logo" src="{{ company_image }}" alt="{{ job.name }} Logo">
                     </div>
                 {% endwith %}
-                <p id="job-title">{{ job.description }}</p>
+                <p id="job-title">{{ job.name }}</p>
                 <button class="btn return-btn" id="return-btn">Return</button>
             </header>
             <div class="application-form-content">
@@ -42,14 +42,32 @@
                     <div class="progress-bar" id="progress-bar"></div>
                 </div>
                 <div class="application-form-tab-one" id="application-form-tab-one">
-                    <label class="input-field-container">
-                        <input type="text" class="input-field" id="name-field" placeholder="Name">
-                        <input type="text" class="input-field" id="street-field" placeholder="Street name">
-                        <input type="text" class="input-field" id="house-field" placeholder="House number">
-                        <input type="text" class="input-field" id="city-field" placeholder="City">
-                        <input type="text" class="input-field" id="country-field" placeholder="Country"> <!-- Needs to be a select element -->
-                        <input type="text" class="input-field" id="postal-field" placeholder="Postal code">
-                    </label>
+                    <div class="input-field-container">
+                        <div class="input-field-section">
+                            <p>Name</p>
+                            <label><input type="text" class="input-field" id="name-field" placeholder="Name"></label>
+                        </div>
+                        <div class="input-field-section">
+                            <p>Street name</p>
+                            <label><input type="text" class="input-field" id="street-field" placeholder="Street name"></label>
+                        </div>
+                        <div class="input-field-section">
+                            <p>House number</p>
+                            <label><input type="text" class="input-field" id="house-field" placeholder="House number"></label>
+                        </div>
+                        <div class="input-field-section">
+                            <p>City</p>
+                            <label><input type="text" class="input-field" id="city-field" placeholder="City"></label>
+                        </div>
+                        <div class="input-field-section">
+                            <p>Country</p>
+                            <label><input type="text" class="input-field" id="country-field" placeholder="Country"></label> <!-- Needs to be a select element -->
+                        </div>
+                        <div class="input-field-section">
+                            <p>Postal code</p>
+                            <label><input type="text" class="input-field" id="postal-field" placeholder="Postal code"></label>
+                        </div>
+                    </div>
                 </div>
                 <div class="application-form-tab-two" id="application-form-tab-two">
                     <label class="input-field-container">
@@ -57,12 +75,24 @@
                     </label>
                 </div>
                 <div class="application-form-tab-three" id="application-form-tab-three">
-                    <label class="input-field-container">
-                        <input type="text" class="input-field" id="workplace-field" placeholder="Place of work">
-                        <input type="text" class="input-field" id="role-field" placeholder="Role">
-                        <input type="text" class="input-field" id="start-date-field" placeholder="Start date">
-                        <input type="text" class="input-field" id="end-date-field" placeholder="End date">
-                    </label>
+                    <div class="input-field-container">
+                        <div class="input-field-section">
+                            <p>Place of work</p>
+                            <label><input type="text" class="input-field" id="workplace-field" placeholder="Place of work"></label>
+                        </div>
+                        <div class="input-field-section">
+                            <p>Role</p>
+                            <label><input type="text" class="input-field" id="role-field" placeholder="Role"></label>
+                        </div>
+                        <div class="input-field-section">
+                            <p>Start date</p>
+                            <label><input type="text" class="input-field" id="start-date-field" placeholder="Start date"></label>
+                        </div>
+                        <div class="input-field-section">
+                            <p>End date</p>
+                            <label><input type="text" class="input-field" id="end-date-field" placeholder="End date"></label>
+                        </div>
+                    </div>
                 </div>
                 <div class="application-form-tab-four" id="application-form-tab-four">
                     <label class="input-field-container">

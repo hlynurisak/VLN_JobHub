@@ -9,7 +9,7 @@
 .companies, .jobs {
     display: flex;
     flex-wrap: wrap;
-    width: 62rem;
+    width: 59rem;
 }
 
 .company, .joblisting {
@@ -17,7 +17,7 @@
     flex-direction: column;
     justify-items: center;
     height: 10rem;
-    margin-bottom: 5rem;
+    margin-bottom: 7rem;
 }
 
 .card-link {
@@ -34,8 +34,8 @@
     background: #ffffff;
     margin: 20px;
     padding: 20px;
-    width: 18rem;
-    height: 14rem;
+    width: 16rem;
+    height: 16rem;
     box-sizing: border-box;
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
@@ -62,9 +62,15 @@
 .company-card p {
     font-size: 18px;
     color: #0056b3;
+    text-align: center;
 }
 
 .company-card h1 {
     font-size: 24px;
     color: var( --blue_color);
+}
+
+.company-name {
+    margin-top: 2rem;
+    font-weight: bold;
 }

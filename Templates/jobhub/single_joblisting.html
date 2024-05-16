@@ -6,8 +6,8 @@
                     <img class="company-img" src="{{ company_image }}" alt="Company Img" />
                 </div>
             {% endwith %}
-            <h1>{{ job.name }}</h1>
-            <p>{{ job.description }}</p>
+            <h1>{{ job.company.name }}</h1>
+            <p>{{ job.name }}</p>
         </div>
     </a>
 </div>
