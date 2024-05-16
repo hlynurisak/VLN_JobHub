@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
-    <div class="container-applications">
+    <div class="container-applications" id="container-applications">
         <div class="application-info">
             {% with job.company.get_first_image as company_image %}
                 <div class="application-logo-container">
@@ -13,12 +13,59 @@
                 <p id="job-location">{{ job.location }}</p>
             </div>
         </div>
-        <div>
-            <button class="apply-button">
-                <a class="apply-link">
-                    <p>Apply</p>
-                </a>
-            </button>
+    </div>
+    <div>
+        <div class="apply-btn-container">
+            <button class="btn apply-btn" id="apply-btn">Apply</button>
+        </div>
+    </div>
+    <div class="container-application-form" id="container-application-form">
+        <div class="application-form" id="application-form">
+            <header class="application-form-info">
+                {% with job.company.get_first_image as company_image %}
+                    <div class="application-form-logo-container">
+                        <img class="application-form-logo" src="{{ company_image }}" alt="{{ job.name }} Logo">
+                    </div>
+                {% endwith %}
+                <p id="job-title">{{ job.description }}</p>
+                <button class="btn return-btn" id="return-btn">Return</button>
+            </header>
+            <div class="application-form-content">
+                <div class="application-button-container">
+                    <button class="btn application-form-btn" id="application-form-btn-one">Contact information</button>
+                    <button class="btn application-form-btn" id="application-form-btn-two">Cover letter</button>
+                    <button class="btn application-form-btn" id="application-form-btn-three">Experiences</button>
+                    <button class="btn application-form-btn" id="application-form-btn-four">Recommendations</button>
+                    <button class="btn application-form-btn" id="application-form-btn-five">Review</button>
+                </div>
+                <div class="progress-bar-container">
+                    <div class="progress-bar" id="progress-bar"></div>
+                </div>
+                <div class="application-form-tab-one" id="application-form-tab-one">
+                    <label class="input-field-container">
+                        <input type="text" class="input-field" id="name-field" placeholder="Name">
+                        <input type="text" class="input-field" id="street-field" placeholder="Street name">
+                        <input type="text" class="input-field" id="house-field" placeholder="House number">
+                        <input type="text" class="input-field" id="city-field" placeholder="City">
+                        <input type="text" class="input-field" id="country-field" placeholder="Country"> <!-- Needs to be a select element -->
+                        <input type="text" class="input-field" id="postal-field" placeholder="Postal code">
+                    </label>
+                </div>
+                <div class="application-form-tab-two" id="application-form-tab-two">
+                    <label class="input-field-container">
+                        <input type="text" class="input-field" id="cover-letter" placeholder="Cover letter">
+                    </label>
+                </div>
+                <div class="application-form-tab-three" id="application-form-tab-three">
+                    
+                </div>
+                <div class="application-form-tab-four" id="application-form-tab-four">
+                    
+                </div>
+                <div class="application-form-tab-five" id="application-form-tab-five">
+                    
+                </div>
+            </div>
         </div>
     </div>
 {% endblock %}
