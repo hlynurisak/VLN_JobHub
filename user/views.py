@@ -1,38 +1,38 @@
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.views import LoginView
 
 from .forms import UpdateUserForm, UpdateProfileForm
-from .models import Profile
-
-# Create your views here.
-companies = [
-    {'name': 'Coca Cola', 'job_listing': "Data Analyst"},
-    {'name': 'Dominos', 'job_listing': "Computer Scientist"},
-    {'name': 'CCP', 'job_listing': "Nerd"},
-    {'name': 'Elko', 'job_listing': "Trúður í Verslun"},
-    {'name': 'Sýn', 'job_listing': "Fréttamaður"},
-    {'name': 'Rúv', 'job_listing': "Gott framlag í Eurovision"},
-
-]
+from JobHub.anonymous_required import anonymous_required
 
 
+@anonymous_required('home')
 def register(request):
     if request.method == 'POST':
-        form = UserCreationForm(data=request.POST)
-        if form.is_valid():
-            user = form.save()
-            Profile.objects.create(user=user)
+        user_create_form = UserCreationForm(data=request.POST)
+        if user_create_form.is_valid():
+            user_create_form.save()
             return redirect('login')
 
+        else:
+            return render(request,
+                          'user/register.html',
+                          {'user_create_form': user_create_form, 'errors': user_create_form.errors})
+
     return render(request, 'user/register.html', {
-        'form': UserCreationForm()
+        'user_create_form': UserCreationForm(),
     })
+
+
+@anonymous_required('home')
+class CustomLogin(LoginView):
+    template_name = 'user/login.html'
 
 
 @login_required
 def profile(request):
-    return render(request, 'user/profile.html', context={'companies': companies})
+    return render(request, 'user/profile.html', context={'companies': {'company': 'company_name'}})
 
 
 @login_required
@@ -58,3 +58,4 @@ def user_name(request):
     if request.user.is_authenticated:
         return {'user_name': request.user.username}
     return {}
+

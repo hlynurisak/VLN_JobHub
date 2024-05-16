@@ -3,7 +3,8 @@
     <h1>Sign up now!</h1>
     <form class="form form-horizontal" method="post">
         {% csrf_token %}
-        {{ form }}
+        <span class="errors">{{ errors }}</span>
+        {{ user_create_form }}
         <input type="submit" class="btn btn-primary" value="Sign up">
     </form>
 {% endblock %}
