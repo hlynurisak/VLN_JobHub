@@ -61,11 +61,11 @@
     width: 14rem;
     height: 3rem;
     color: #FFFFFF;
-    background-color: var(--blue_color);
+    background-color: var(--red_color);
 }
 
 .apply-btn:hover {
-    background-color: var(--blue_color);
+    background-color: var(--red_color);
     border: 2px white solid
 }
 
@@ -242,6 +242,6 @@
 }
 
 .continue-btn {
-    background-color: var(--blue_color);
+    background-color: var(--red_color);
     color: #FFFFFF;
 }

@@ -96,7 +96,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
     /* JS Data object definitions */
 
-    function contactInfo(fullName, streetName, houseNumber, city, country, postalCode) {
+    const contact = new ContactInfo("", "", "", "", "", "");
+    const letter = new CoverLetter("");
+    const experiences = new Experiences();
+    const recommendations = new Recommendations();
+
+    function ContactInfo(fullName, streetName, houseNumber, city, country, postalCode) {
         this.fullName = fullName;
         this.streetName = streetName;
         this.houseNumber = houseNumber;
@@ -105,11 +110,11 @@ document.addEventListener('DOMContentLoaded', function() {
         this.postalCode = postalCode
     }
 
-    function coverLetter(text) {
+    function CoverLetter(text) {
         this.text = text;
     }
 
-    function experiences() {
+    function Experiences() {
         this.experiences = []
 
         this.addExperience = function(placeOfWork, role, startDate, endDate) {
@@ -122,7 +127,7 @@ document.addEventListener('DOMContentLoaded', function() {
         };
     }
 
-    function recommendations() {
+    function Recommendations() {
         this.recommendations = []
 
         this.addRecommendation = function(name, email, phoneNumber, role, mayBeContacted) {
@@ -137,5 +142,40 @@ document.addEventListener('DOMContentLoaded', function() {
 
     /* Data retrieval for review and database */
 
-    const inputFields = document.querySelectorAll('.input-field')
+        function saveContactInfo() {
+        contact.fullName = document.getElementById('name-field').value;
+        contact.streetName = document.getElementById('street-field').value;
+        contact.houseNumber = document.getElementById('house-field').value;
+        contact.city = document.getElementById('city-field').value;
+        contact.country = document.getElementById('country-field').value;
+        contact.postalCode = document.getElementById('postal-field').value;
+    }
+
+    function saveCoverLetter() {
+        letter.text = document.getElementById('cover-letter-field').value;
+    }
+
+    function saveExperience() {
+        const placeOfWork = document.getElementById('workplace-field').value;
+        const role = document.getElementById('role-field').value;
+        const startDate = document.getElementById('start-date-field').value;
+        const endDate = document.getElementById('end-date-field').value;
+        experiences.addExperience(placeOfWork, role, startDate, endDate);
+    }
+
+    function saveRecommendation() {
+        const name = document.getElementById('rec-name-field').value;
+        const email = document.getElementById('rec-email-field').value;
+        const phoneNumber = document.getElementById('rec-phone-field').value;
+        const role = document.getElementById('rec-role-field').value;
+        const mayBeContacted = document.getElementById('rec-contact-field').checked;
+        recommendations.addRecommendation(name, email, phoneNumber, role, mayBeContacted);
+    }
+
+    function reviewInformation() {
+        saveContactInfo();
+        saveCoverLetter();
+        saveExperience();
+        saveRecommendation();
+    }
 });
