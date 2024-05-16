@@ -12,7 +12,7 @@ def index(request):
 
 def get_job_by_id(request, id):
     return render('JobHub/home_page.html',{
-        'Jobjub': get_object_or_404(JobHub, pk=id)
+        'JobHub': get_object_or_404(JobHub, pk=id)
     })
 
 
@@ -21,11 +21,15 @@ def create_joblisting(request):
         form =JobCreateForm(data=request.POST)
         if form.is_valid():
             job = form.save()
-            job_image = CompanyImage(image=request.POST['image'], job=job)
-            job_image.save()
-            return redirect('Jobhub-index')
+            job.save()
+            return redirect('/')
     else:
         form = JobCreateForm
     return render(request, 'JobHub/create_joblisting.html', {
         'form': form
     })
+
+def delete_joblisting(request, id):
+    job = get_object_or_404(JobHub, pk=id)
+    job.delete()
+    return redirect('/')
