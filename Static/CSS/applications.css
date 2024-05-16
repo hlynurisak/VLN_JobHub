@@ -245,3 +245,8 @@
     background-color: var(--red_color);
     color: #FFFFFF;
 }
+
+.continue-btn:hover {
+    background-color: var(--red_color);
+    border: 2px solid white;
+}
