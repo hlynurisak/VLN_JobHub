@@ -9,7 +9,7 @@
 .companies, .jobs {
     display: flex;
     flex-wrap: wrap;
-    width: 59rem;
+    width: 56rem;
 }
 
 .company, .joblisting {

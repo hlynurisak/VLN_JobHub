@@ -2,18 +2,18 @@
 
 document.addEventListener('DOMContentLoaded', function() {
 
-    const progress_bar = document.getElementById('progress-bar')
-    const btn_one = document.getElementById('application-form-btn-one')
-    const btn_two = document.getElementById('application-form-btn-two')
-    const btn_three = document.getElementById('application-form-btn-three')
-    const btn_four = document.getElementById('application-form-btn-four')
-    const btn_five = document.getElementById('application-form-btn-five')
-    const continue_btn = document.getElementById('continue-btn')
-    const back_btn = document.getElementById('back-btn')
-    const apply_btn = document.getElementById('apply-btn')
-    const return_btn = document.getElementById('return-btn')
+    const progressBar = document.getElementById('progress-bar')
+    const btnOne = document.getElementById('application-form-btn-one')
+    const btnTwo = document.getElementById('application-form-btn-two')
+    const btnThree = document.getElementById('application-form-btn-three')
+    const btnFour = document.getElementById('application-form-btn-four')
+    const btnFive = document.getElementById('application-form-btn-five')
+    const continueBtn = document.getElementById('continue-btn')
+    const backBtn = document.getElementById('back-btn')
+    const applyBtn = document.getElementById('apply-btn')
+    const returnBtn = document.getElementById('return-btn')
 
-    const buttons = [btn_one, btn_two, btn_three, btn_four, btn_five];
+    const buttons = [btnOne, btnTwo, btnThree, btnFour, btnFive];
     let currentIndex = 0;
 
     const click = new MouseEvent('click', {
@@ -26,28 +26,28 @@ document.addEventListener('DOMContentLoaded', function() {
         buttons[index].dispatchEvent(click)
     }
 
-    continue_btn.addEventListener('click', function () {
+    continueBtn.addEventListener('click', function () {
        switchButtons(currentIndex+1)
     });
 
-    back_btn.addEventListener('click', function () {
+    backBtn.addEventListener('click', function () {
         if (currentIndex === 0){
-            return_btn.dispatchEvent(click)
+            returnBtn.dispatchEvent(click)
         }
         switchButtons(currentIndex-1)
     })
 
-    apply_btn.addEventListener('click', function() {
+    applyBtn.addEventListener('click', function() {
         document.getElementById('container-applications').style.display = 'none';
         document.getElementById('container-application-form').style.display = 'block';
-        apply_btn.style.display = 'none';
-        btn_one.dispatchEvent(click)
+        applyBtn.style.display = 'none';
+        btnOne.dispatchEvent(click)
     });
 
-    return_btn.addEventListener('click', function() {
+    returnBtn.addEventListener('click', function() {
         document.getElementById('container-application-form').style.display = 'none';
         document.getElementById('container-applications').style.display = 'block';
-        apply_btn.style.display = 'block';
+        applyBtn.style.display = 'block';
     });
 
     /* Progress bar filling */
@@ -59,38 +59,83 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('application-form-tab-five').style.display = 'none';
     }
 
-    btn_one.addEventListener('click', function() {
+    btnOne.addEventListener('click', function() {
         hideAllTabs()
-        progress_bar.style.width = '20%'
+        progressBar.style.width = '20%'
         document.getElementById('application-form-tab-one').style.display = 'block';
         currentIndex = 0;
     });
 
-    btn_two.addEventListener('click', function() {
+    btnTwo.addEventListener('click', function() {
         hideAllTabs()
-        progress_bar.style.width = '40%'
+        progressBar.style.width = '40%'
         document.getElementById('application-form-tab-two').style.display = 'block';
         currentIndex = 1
     });
 
-    btn_three.addEventListener('click', function() {
+    btnThree.addEventListener('click', function() {
         hideAllTabs()
-        progress_bar.style.width = '60%'
+        progressBar.style.width = '60%'
         document.getElementById('application-form-tab-three').style.display = 'block';
         currentIndex = 2
     });
 
-    btn_four.addEventListener('click', function() {
+    btnFour.addEventListener('click', function() {
         hideAllTabs()
-        progress_bar.style.width = '80%'
+        progressBar.style.width = '80%'
         document.getElementById('application-form-tab-four').style.display = 'block';
         currentIndex = 3
     });
 
-    btn_five.addEventListener('click', function() {
+    btnFive.addEventListener('click', function() {
         hideAllTabs()
-        progress_bar.style.width = '100%'
+        progressBar.style.width = '100%'
         document.getElementById('application-form-tab-five').style.display = 'block';
         currentIndex = 4
     });
+
+    /* JS Data object definitions */
+
+    function contactInfo(fullName, streetName, houseNumber, city, country, postalCode) {
+        this.fullName = fullName;
+        this.streetName = streetName;
+        this.houseNumber = houseNumber;
+        this.city = city;
+        this.country = country;
+        this.postalCode = postalCode
+    }
+
+    function coverLetter(text) {
+        this.text = text;
+    }
+
+    function experiences() {
+        this.experiences = []
+
+        this.addExperience = function(placeOfWork, role, startDate, endDate) {
+            const experience = [placeOfWork, role, startDate, endDate];
+            this.experiences.push(experience);
+        };
+
+        this.getAllExperiences = function() {
+            return this.experiences;
+        };
+    }
+
+    function recommendations() {
+        this.recommendations = []
+
+        this.addRecommendation = function(name, email, phoneNumber, role, mayBeContacted) {
+            const recommendation = [name, email, phoneNumber, role, mayBeContacted];
+            this.recommendations.push(recommendation);
+        };
+
+        this.getAllRecommendations = function() {
+            return this.recommendations;
+        };
+    }
+
+    /* Data retrieval for review and database */
+
+    const inputFields = document.querySelectorAll('.input-field')
 });
