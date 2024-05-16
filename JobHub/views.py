@@ -1,8 +1,8 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 
 import JobHub
 from JobHub.forms.jobhub_form import JobCreateForm
-from JobHub.models import Job
+from JobHub.models import Job, CompanyImage
 
 
 # Create your views here.
@@ -18,7 +18,12 @@ def get_job_by_id(request, id):
 
 def create_joblisting(request):
     if request.method == 'POST':
-        print(1)
+        form =JobCreateForm(data=request.POST)
+        if form.is_valid():
+            job = form.save()
+            job_image = CompanyImage(image=request.POST['image'], job=job)
+            job_image.save()
+            return redirect('Jobhub-index')
     else:
         form = JobCreateForm
     return render(request, 'JobHub/create_joblisting.html', {
