@@ -20,19 +20,32 @@
     </div>
     <div class="applied-jobs-container">
         <div class="applied-jobs-title">
-            <h2>Applied Jobs</h2>
+        {% if applications %}
+            <h2>Your Applications</h2>
+        {% else %}
+            <h2>You have not submitted any applications!</h2>
+        {% endif %}
         </div>
         <div class="applied-cards-container">
             <div class="jobs">
                 {% for application in applications %}
-                <div class="job-card">
-                    <h5>{{ application.job.title }}</h5>
+                <div class="application-card">
+                    <div class="company-logo-container">
+                        {% if application.company.images %}
+                        <img src="{{ application.company.get_first_image }}"
+                             alt="{{ application.company.name }} Logo"
+                             class="company-img"/>
+                        {% endif %}
+                    </div>
+                    <h1>{{ application.job.title }}</h1>
                     <p><strong>Company:</strong> {{ application.company.name }}</p>
-                    <p><strong>Applied on:</strong> {{ application.created_at }}</p>
+                    <p><strong>Category:</strong> {{ application.job.category }}</p>
+                    <p><strong>Applied on:</strong> {{ application.created_at.date }}</p>
+                    <p><strong>Due Date:</strong> {{ application.job.due_date }}</p>
                     <p><strong>Status:</strong> {{ application.status }}</p>
                 </div>
                 {% empty %}
-                <p>No applications found.</p>
+                <p><a href="{% url 'homepage-index' %}">Press here to find new opportunities!</a></p>
                 {% endfor %}
             </div>
         </div>

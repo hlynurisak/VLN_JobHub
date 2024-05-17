@@ -134,6 +134,21 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('application-form-tab-five').style.display = 'block';
         currentIndex = 4
         document.dispatchEvent(indexChangeEvent)
+    });
 
+        document.getElementById('add-experience').addEventListener('click', function() {
+        let formIdx = document.querySelectorAll('.application-form-tab-three .dynamic-form').length;
+        let formTemplate = document.getElementById('id_experiences-TOTAL_FORMS').value;
+        let newForm = formTemplate.replace(/__prefix__/g, formIdx);
+        document.querySelector('.application-form-tab-three').insertAdjacentHTML('beforeend', newForm);
+        document.getElementById('id_experiences-TOTAL_FORMS').value = formIdx + 1;
+    });
+
+    document.getElementById('add-recommendation').addEventListener('click', function() {
+        let formIdx = document.querySelectorAll('.application-form-tab-four .dynamic-form').length;
+        let formTemplate = document.getElementById('id_recommendations-TOTAL_FORMS').value;
+        let newForm = formTemplate.replace(/__prefix__/g, formIdx);
+        document.querySelector('.application-form-tab-four').insertAdjacentHTML('beforeend', newForm);
+        document.getElementById('id_recommendations-TOTAL_FORMS').value = formIdx + 1;
     });
 });
