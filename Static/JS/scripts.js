@@ -136,19 +136,47 @@ document.addEventListener('DOMContentLoaded', function() {
         document.dispatchEvent(indexChangeEvent)
     });
 
-        document.getElementById('add-experience').addEventListener('click', function() {
-        let formIdx = document.querySelectorAll('.application-form-tab-three .dynamic-form').length;
-        let formTemplate = document.getElementById('id_experiences-TOTAL_FORMS').value;
+    document.getElementById('add-experience').addEventListener('click', function() {
+        let totalForms = document.getElementById('id_experiences-TOTAL_FORMS');
+        let formIdx = totalForms.value;
+        let formTemplate = document.querySelector('.dynamic-form').outerHTML;
         let newForm = formTemplate.replace(/__prefix__/g, formIdx);
-        document.querySelector('.application-form-tab-three').insertAdjacentHTML('beforeend', newForm);
-        document.getElementById('id_experiences-TOTAL_FORMS').value = formIdx + 1;
+
+        newForm = newForm.replace(/id_experiences-0/g, 'id_experiences-' + formIdx);
+        newForm = newForm.replace(/name="experiences-0/g, 'name="experiences-' + formIdx);
+
+        let container = document.getElementById('application-form-tab-three');
+        container.insertAdjacentHTML('beforeend', newForm);
+        totalForms.value = parseInt(formIdx) + 1;
+        updateRemoveButtons();
     });
 
     document.getElementById('add-recommendation').addEventListener('click', function() {
-        let formIdx = document.querySelectorAll('.application-form-tab-four .dynamic-form').length;
-        let formTemplate = document.getElementById('id_recommendations-TOTAL_FORMS').value;
+        let totalForms = document.getElementById('id_recommendations-TOTAL_FORMS');
+        let formIdx = totalForms.value;
+        let formTemplate = document.querySelector('.dynamic-form').outerHTML;
         let newForm = formTemplate.replace(/__prefix__/g, formIdx);
-        document.querySelector('.application-form-tab-four').insertAdjacentHTML('beforeend', newForm);
-        document.getElementById('id_recommendations-TOTAL_FORMS').value = formIdx + 1;
+
+        newForm = newForm.replace(/id_recommendations-0/g, 'id_recommendations-' + formIdx);
+        newForm = newForm.replace(/name="recommendations-0/g, 'name="recommendations-' + formIdx);
+
+        let container = document.querySelector('.application-form-tab-four');
+        container.insertAdjacentHTML('beforeend', newForm);
+        totalForms.value = parseInt(formIdx) + 1;
+        updateRemoveButtons();
     });
+
+    function updateRemoveButtons() {
+        document.querySelectorAll('.remove-form').forEach(button => {
+            button.removeEventListener('click', removeForm);
+            button.addEventListener('click', removeForm);
+        });
+    }
+
+    function removeForm() {
+        this.closest('.dynamic-form').remove();
+    }
+
+updateRemoveButtons();
+
 });

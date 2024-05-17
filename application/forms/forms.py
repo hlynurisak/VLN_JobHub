@@ -6,13 +6,13 @@ from application.models import ContactInformation, CoverLetter, Experience, Reco
 class ContactInformationForm(forms.ModelForm):
     class Meta:
         model = ContactInformation
-        fields = ['name', 'street', 'house_number', 'city', 'country', 'postal_code']
+        fields = '__all__'
 
 
 class CoverLetterForm(forms.ModelForm):
     class Meta:
         model = CoverLetter
-        fields = ['cover_letter']
+        fields = '__all__'
 
 
 class ExperienceForm(forms.ModelForm):
@@ -21,13 +21,13 @@ class ExperienceForm(forms.ModelForm):
 
     class Meta:
         model = Experience
-        fields = ['workplace', 'role', 'start_date', 'end_date']
+        fields = '__all__'
 
 
 class RecommendationForm(forms.ModelForm):
     class Meta:
         model = Recommendation
-        fields = ['rec_name', 'rec_email', 'rec_phone', 'rec_role', 'rec_contact']
+        fields = '__all__'
 
 
 ExperienceFormSet = modelformset_factory(Experience, form=ExperienceForm, extra=1, can_delete=True)
