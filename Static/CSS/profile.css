@@ -63,6 +63,7 @@
 .applied-cards-container {
     display: flex;
     flex-wrap: wrap;
+    flex-direction: row;
     gap: 20px;
     justify-content: center;
 }
@@ -141,6 +142,15 @@
     width: 56rem;
 }
 
+.applied-jobs {
+    display: flex;
+    flex-flow: row;
+    height: auto;
+    min-height: 60rem;
+    flex-direction: row;
+    width: 56rem;
+}
+
 .application {
     display: flex;
     flex-direction: column;
@@ -158,7 +168,7 @@
     margin: 20px;
     padding: 20px;
     width: 16rem;
-    height: auto;
+    height: 30rem;
     box-sizing: border-box;
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);

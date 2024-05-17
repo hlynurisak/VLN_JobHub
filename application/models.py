@@ -22,17 +22,24 @@ class CoverLetter(models.Model):
         return f"Cover Letter ({self.id})"
 
 
-class Experience(models.Model):
-    workplace = models.CharField(max_length=100)
-    role = models.CharField(max_length=100)
-    start_date = models.DateField()
-    end_date = models.DateField(null=True, blank=True)
+class Application(models.Model):
+    company = models.ForeignKey(Company, on_delete=models.CASCADE, related_name='applications')
+    applicant = models.ForeignKey(User, on_delete=models.CASCADE, related_name='applications')
+    job = models.ForeignKey(Job, on_delete=models.CASCADE, related_name='applications')
+    contact_info = models.ForeignKey(ContactInformation, on_delete=models.CASCADE, related_name='applications', blank=True, null=True)
+    cover_letter = models.ForeignKey(CoverLetter, on_delete=models.SET_NULL, related_name='applications', blank=True, null=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    status = models.CharField(max_length=50, choices=[('Pending', 'Pending'), ('Reviewed', 'Reviewed'), ('Rejected', 'Rejected'), ('Accepted', 'Accepted')])
 
     def __str__(self):
-        return f"{self.role} at {self.workplace}"
+        return f"Application for {self.job.name} at {self.company.name} by {self.applicant.username}"
+
+    class Meta:
+        ordering = ['-created_at']
 
 
 class Recommendation(models.Model):
+    application = models.ForeignKey(Application, on_delete=models.CASCADE, related_name='recommendations', null=True, blank=True)
     rec_name = models.CharField(max_length=100)
     rec_email = models.EmailField()
     rec_phone = models.CharField(max_length=15)
@@ -43,18 +50,12 @@ class Recommendation(models.Model):
         return f"Recommendation by {self.rec_name}"
 
 
-class Application(models.Model):
-    company = models.ForeignKey(Company, on_delete=models.CASCADE, related_name='applications')
-    applicant = models.ForeignKey(User, on_delete=models.CASCADE, related_name='applications')
-    job = models.ForeignKey(Job, on_delete=models.CASCADE, related_name='applications')
-    experience = models.ForeignKey(Experience, on_delete=models.SET_NULL, related_name='applications', blank=True, null=True)
-    recommendation = models.ForeignKey(Recommendation, on_delete=models.SET_NULL, related_name='applications', blank=True, null=True)
-    cover_letter = models.ForeignKey(CoverLetter, on_delete=models.SET_NULL, related_name='applications', blank=True, null=True)
-    created_at = models.DateTimeField(auto_now_add=True)
-    status = models.CharField(max_length=50, choices=[('Pending', 'Pending'), ('Reviewed', 'Reviewed'), ('Rejected', 'Rejected'), ('Accepted', 'Accepted')])
+class Experience(models.Model):
+    application = models.ForeignKey(Application, on_delete=models.CASCADE, related_name='experiences', null=True, blank=True)
+    workplace = models.CharField(max_length=100)
+    role = models.CharField(max_length=100)
+    start_date = models.DateField()
+    end_date = models.DateField(null=True, blank=True)
 
     def __str__(self):
-        return f"Application for {self.job.name} at {self.company.name} by {self.applicant.username}"
-
-    class Meta:
-        ordering = ['-created_at']
+        return f"{self.role} at {self.workplace}"

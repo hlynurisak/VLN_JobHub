@@ -14,7 +14,6 @@ def application_view(request, job_id):
 @login_required
 def apply(request, job_id):
     job = get_object_or_404(Job, id=job_id)
-    user = request.user
 
     if request.method == 'POST':
         contact_form = ContactInformationForm(request.POST)
@@ -22,33 +21,32 @@ def apply(request, job_id):
         experience_formset = ExperienceFormSet(request.POST, prefix='experiences')
         recommendation_formset = RecommendationFormSet(request.POST, prefix='recommendations')
 
-        if all([contact_form.is_valid(), cover_form.is_valid(), experience_formset.is_valid(),
-                recommendation_formset.is_valid()]):
+        if (contact_form.is_valid() and cover_form.is_valid() and
+                experience_formset.is_valid() and recommendation_formset.is_valid()):
 
-            contact_info = contact_form.save(commit=False)
-            contact_info.save()
-
-            cover_letter = cover_form.save(commit=False)
-            cover_letter.save()
-
-            experiences = experience_formset.save(commit=False)
-            experiences.save()
-
-            recommendations = recommendation_formset.save(commit=False)
-            recommendations.save()
+            contact_info = contact_form.save()
+            cover_letter = cover_form.save()
 
             application = Application.objects.create(
                 company=job.company,
-                applicant=user,
                 job=job,
+                applicant=request.user,
+                contact_info=contact_info,
                 cover_letter=cover_letter,
                 status='Pending'
             )
 
-            application.experience.set(experiences)
-            application.recommendation.set(recommendations)
+            for form in experience_formset:
+                experience = form.save(commit=False)
+                experience.application = application
+                experience.save()
 
-            return redirect('applications', job_id=job_id)
+            for form in recommendation_formset:
+                recommendation = form.save(commit=False)
+                recommendation.application = application
+                recommendation.save()
+
+            return redirect('application-info', args=[job_id])
     else:
         contact_form = ContactInformationForm()
         cover_form = CoverLetterForm()

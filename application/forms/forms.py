@@ -21,13 +21,13 @@ class ExperienceForm(forms.ModelForm):
 
     class Meta:
         model = Experience
-        fields = '__all__'
+        fields = ['workplace', 'role', 'start_date', 'end_date']
 
 
 class RecommendationForm(forms.ModelForm):
     class Meta:
         model = Recommendation
-        fields = '__all__'
+        fields = ['rec_name', 'rec_email', 'rec_phone', 'rec_role', 'rec_contact']
         labels = {
             'rec_name': 'Recommender Name',
             'rec_email': 'Recommender Email',
