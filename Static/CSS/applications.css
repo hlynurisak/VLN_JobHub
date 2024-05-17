@@ -438,3 +438,12 @@ body {
 }
 
 
+.remove-form {
+    background-color: var(--blue_color);
+    color: #FFFFFF;
+}
+
+.remove-form:hover {
+    background-color: var(--blue_color_hover);
+    color: #FFFFFF;
+}
