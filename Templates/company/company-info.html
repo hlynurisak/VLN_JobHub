@@ -1,4 +1,15 @@
 {% extends 'base.html' %}
-{% block content %}
 
+{% block content %}
+<div class="company-info">
+    <h1>{{ company.name }}</h1>
+    <p><strong>Start Date:</strong> {{ company.start_date }}</p>
+    <p><strong>Location:</strong> {{ company.location }}</p>
+    <p><strong>Website:</strong> <a href="{{ company.link_to_page }}">{{ company.link_to_page }}</a></p>
+    {% if company.get_first_image %}
+        <img src="{{ company.get_first_image }}" alt="{{ company.name }} Image">
+    {% else %}
+        <p>No image available</p>
+    {% endif %}
+</div>
 {% endblock %}
