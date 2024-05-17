@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib.auth.decorators import login_required
 from application.forms.forms import ContactInformationForm, CoverLetterForm, ExperienceFormSet, RecommendationFormSet
 from JobHub.models import Job
 from application.models import Application, Experience, Recommendation
@@ -10,6 +11,7 @@ def application_view(request, job_id):
     return render(request, 'application/application-info.html', {'job': job})
 
 
+@login_required
 def apply(request, job_id):
     job = get_object_or_404(Job, id=job_id)
     user = request.user
@@ -39,17 +41,12 @@ def apply(request, job_id):
                 company=job.company,
                 applicant=user,
                 job=job,
-                experience=experience,
-                recommendation=recommendation,
                 cover_letter=cover_letter,
                 status='Pending'
             )
 
-            for experience in experiences:
-                application.experience.add(experience)
-
-            for recommendation in recommendations:
-                application.recommendation.add(recommendation)
+            application.experience.set(experiences)
+            application.recommendation.set(recommendations)
 
             return redirect('applications', job_id=job_id)
     else:
