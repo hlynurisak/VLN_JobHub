@@ -30,10 +30,20 @@
                 {{ cover_form.as_p }}
             </div>
             <div class="application-form-tab" id="application-form-tab-three">
-                {{ experience_form.as_p }}
+                {{ experience_formset.management_form }}
+                {% for form in experience_formset %}
+                    {{ form.as_p }}
+                    {{ form.DELETE }}
+                {% endfor %}
+                <button type="button" id="add-experience">Add Experience</button>
             </div>
             <div class="application-form-tab" id="application-form-tab-four">
-                {{ recommendation_form.as_p }}
+                {{ recommendation_formset.management_form }}
+                {% for form in recommendation_formset %}
+                    {{ form.as_p }}
+                    {{ form.DELETE }}
+                {% endfor %}
+                <button type="button" id="add-recommendation">Add Recommendation</button>
             </div>
             <div class="application-form-tab" id="application-form-tab-five">
                 <div id = review-content></div>
