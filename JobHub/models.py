@@ -1,12 +1,14 @@
-
+from django.contrib.auth.models import User
 from django.db import models
 from company.models import Company
-# Create your models here.
+
+
 class JobCategory(models.Model):
     name = models.CharField(max_length=255)
 
     def __str__(self):
         return self.name
+
 
 class Job(models.Model):
     name = models.CharField(max_length=255)
@@ -32,7 +34,6 @@ class JobRequirement(models.Model):
 
     def __str__(self):
         return self.requirement
-
 
 
 class CompanyImage(models.Model):
