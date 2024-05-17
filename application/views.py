@@ -46,7 +46,7 @@ def apply(request, job_id):
                 recommendation.application = application
                 recommendation.save()
 
-            return redirect('application-info', args=[job_id])
+            return redirect('applications', job_id=job_id)
     else:
         contact_form = ContactInformationForm()
         cover_form = CoverLetterForm()
