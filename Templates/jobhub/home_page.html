@@ -1,14 +1,71 @@
 {% extends 'base.html' %}
+
 {% block content %}
     <div id="searchbar-container">
-        <input type="text" class="search-bar" placeholder="Search...">
+        <button id="filter-button" class="btn btn-secondary">&#9776;</button>
+        <form method="get" id="search-form">
+            <input type="text" name="search" class="search-bar" placeholder="Search..." value="{{ request.GET.search|default_if_none:'' }}">
+            <button type="submit" class="btn btn-primary">Search</button>
+        </form>
         <a href="{% url 'create_joblisting' %}" class="btn btn-primary create-joblisting-btn">Create Joblisting</a>
     </div>
+
+    <!-- Collapsible filter sidebar -->
+    <div id="filter-sidebar" class="filter-sidebar">
+        <form method="get" id="filter-form">
+            <div class="filter-section">
+                <label for="category">Category</label>
+                <select name="category" class="form-control">
+                    <option value="">All Categories</option>
+                    {% for category in categories %}
+                        <option value="{{ category.id }}" {% if request.GET.category == category.id|stringformat:"s" %}selected{% endif %}>{{ category.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="filter-section">
+                <label for="company">Company</label>
+                <select name="company" class="form-control">
+                    <option value="">All Companies</option>
+                    {% for company in companies %}
+                        <option value="{{ company.id }}" {% if request.GET.company == company.id|stringformat:"s" %}selected{% endif %}>{{ company.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="filter-section">
+                <label for="applied">Applied</label>
+                <select name="applied" class="form-control">
+                    <option value="">All</option>
+                    <option value="true" {% if request.GET.applied == 'true' %}selected{% endif %}>Applied</option>
+                    <option value="false" {% if request.GET.applied == 'false' %}selected{% endif %}>Not Applied</option>
+                </select>
+            </div>
+            <div class="filter-section">
+                <label for="order_by">Order By</label>
+                <select name="order_by" class="form-control">
+                    <option value="date" {% if request.GET.order_by == "date" %}selected{% endif %}>Order by Date</option>
+                    <option value="due_date" {% if request.GET.order_by == "due_date" %}selected{% endif %}>Order by Due Date</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Apply Filters</button>
+        </form>
+    </div>
+
     <div class="container-jobs">
         <div class="jobs">
-            {% for job in JobHub %}
+            {% for job in job_offers %}
                 {% include 'jobhub/single_joblisting.html' with job=job %}
             {% endfor %}
         </div>
     </div>
+
+    <script>
+        document.getElementById("filter-button").onclick = function() {
+            var sidebar = document.getElementById("filter-sidebar");
+            if (sidebar.style.display === "none" || sidebar.style.display === "") {
+                sidebar.style.display = "block";
+            } else {
+                sidebar.style.display = "none";
+            }
+        }
+    </script>
 {% endblock %}
