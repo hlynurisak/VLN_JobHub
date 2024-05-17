@@ -24,8 +24,15 @@
         </div>
         <div class="applied-cards-container">
             <div class="jobs">
-                {% for job in JobHub %}
-                    {% include 'jobhub/single_joblisting.html' with job=job %}
+                {% for application in applications %}
+                <div class="job-card">
+                    <h5>{{ application.job.title }}</h5>
+                    <p><strong>Company:</strong> {{ application.company.name }}</p>
+                    <p><strong>Applied on:</strong> {{ application.created_at }}</p>
+                    <p><strong>Status:</strong> {{ application.status }}</p>
+                </div>
+                {% empty %}
+                <p>No applications found.</p>
                 {% endfor %}
             </div>
         </div>

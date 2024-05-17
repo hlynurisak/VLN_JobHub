@@ -1,3 +1,4 @@
+
 from django.db import models
 from company.models import Company
 # Create your models here.

@@ -3,6 +3,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.views import LoginView
 
+from application.models import Application
 from .forms import UpdateUserForm, UpdateProfileForm
 from JobHub.anonymous_required import anonymous_required
 
@@ -32,7 +33,8 @@ class CustomLogin(LoginView):
 
 @login_required
 def profile(request):
-    return render(request, 'user/profile.html', context={'companies': {'company': 'company_name'}})
+    applications = Application.objects.filter(applicant=request.user)
+    return render(request, 'user/profile.html', context={'applications': applications})
 
 
 @login_required
