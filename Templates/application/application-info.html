@@ -3,19 +3,26 @@
 <div class="container-applications" id="container-applications">
     <div class="application-info">
         <div class="application-logo-container">
-            <img class="application-logo" src="{{ job.company.get_first_image }}" alt="{{ job.name }} Logo">
+            <img class="application-logo" src="{{ job.company.get_first_image }}" alt="{{ job.title }} Logo">
         </div>
-        <a href="{% url 'delete_joblisting' job.id %}" class="black btn btn-primary">Delete Joblisting</a>
         <div class="application-title">
-            <p id="job-title">{{ job.name }}</p>
+            <p id="job-title">{{ job.title }}</p>
             <p id="job-company">{{ job.company.name }}</p>
             <p id="job-location">{{ job.location }}</p>
+            <p id="job-category">{{ job.category }}</p>
+            <p id="job-due-date">Due Date: {{ job.due_date }}</p>
+            <p id="job-start-date">Start Date: {{ job.start_date }}</p>
+            <div id="job-description">{{ job.description|safe }}</div>
         </div>
     </div>
 </div>
 <div>
     <div class="apply-btn-container">
-        <a href="{% url 'apply' job.id %}" class="btn apply-btn" id="apply-btn">Apply</a>
+        {% if application %}
+            <p>You applied on {{ application.applied_on }}. Status: {{ application.status }}</p>
+        {% else %}
+            <a href="{% url 'apply' job.id %}" class="btn apply-btn" id="apply-btn">Apply</a>
+        {% endif %}
     </div>
 </div>
 {% endblock %}
