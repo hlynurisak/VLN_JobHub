@@ -15,5 +15,14 @@
       <jdbc-url>jdbc:postgresql://verklegt-namskeid-ii.northeurope.cloudapp.azure.com:5432/postgres</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
+    <data-source source="LOCAL" name="Django default" uuid="6c3701d5-12c0-4be8-b7a0-fd2e9aed37cd">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <imported>true</imported>
+      <remarks>$PROJECT_DIR$/VLN_JobHub/settings.py</remarks>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://verklegt-namskeid-ii.northeurope.cloudapp.azure.com:5432/postgres</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
   </component>
 </project>

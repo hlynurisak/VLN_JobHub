@@ -1,19 +1,18 @@
 :root {
     --blue_color: #0F52BA;
+    --blue_color_hover: #0d47a1;  /* Darker blue for hover effect */
     --red_color: #DE1313;
     --background_color: #FFFFFF;
 }
 
-/*Navbar config*/
-
+/* Navbar config */
 .navbar {
     height: 5rem;
     background-color: var(--blue_color);
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
-/*This container is specifically for the nav bar */
-
+/* This container is specifically for the nav bar */
 .container-fluid {
     width: 60%;
 }
@@ -41,7 +40,7 @@ li.nav-item {
     height: 4rem;
 }
 
-.nav-link{
+.nav-link {
     color: #FFFFFF;
 }
 
@@ -68,10 +67,47 @@ header {
 
 h2 {
     color: #333;
+    text-align: center;
+    margin-top: 1rem;
 }
 
-/* Styling for each company card */
+/* Form Styles */
+.company-form {
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    max-width: 600px;
+    margin: 2rem auto;
+}
 
+.company-form input,
+.company-form select,
+.company-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.company-form button,
+.company-form input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: var(--blue_color);
+    border: none;
+    border-radius: 5px;
+    color: #ffffff;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.company-form button:hover,
+.company-form input[type="submit"]:hover {
+    background-color: var(--blue_color_hover);
+}
 
 /* Style for icons and action items in the header */
 .icon {
@@ -89,15 +125,33 @@ h2 {
 }
 
 /* Home page formatting */
-
 #searchbar-container {
     display: flex;
     justify-content: center;
+    align-items: center;
+    margin-top: 4rem;
 }
 
-.search-bar{
+.search-bar {
     width: 50%;
-    margin-top: 4rem;
     padding: 8px;
     border-radius: 25px;
+    margin-right: 10px;
+}
+
+.create-joblisting-btn,
+.create-company-btn {
+    padding: 8px 16px;
+    border-radius: 25px;
+    background-color: var(--blue_color);
+    color: var(--background_color);
+    text-align: center;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+.create-joblisting-btn:hover,
+.create-company-btn:hover {
+    background-color: var(--blue_color_hover);
+    color: var(--background_color);
 }
