@@ -22,6 +22,22 @@ def apply(request, job_id):
                 recommendation_form.is_valid()]):
             # Save the form data to the database
             # ...
+            contact_info = contact_form.save(commit=False)
+            contact_info.job = job
+            contact_info.save()
+
+            cover_letter = cover_form.save(commit=False)
+            cover_letter.job = job
+            cover_letter.save()
+
+            experience = experience_form.save(commit=False)
+            experience.job = job
+            experience.save()
+
+            recommendation = recommendation_form.save(commit=False)
+            recommendation.job = job
+            recommendation.save()
+
             return redirect('applications', job_id=job_id)
     else:
         contact_form = ContactInformationForm()

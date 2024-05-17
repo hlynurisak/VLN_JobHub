@@ -1,37 +1,45 @@
 from django.db import models
+<<<<<<< Updated upstream
 from JobHub.models import Job, Company, User
+=======
+from JobHub.models import Job
+>>>>>>> Stashed changes
 
 
-class Contact(models.Model):
-    full_name = models.CharField(max_length=255)
-    street_name = models.CharField(max_length=255)
+class ContactInformation(models.Model):
+    job = models.ForeignKey(Job, on_delete=models.CASCADE, related_name='contact_info')
+    name = models.CharField(max_length=100)
+    street = models.CharField(max_length=100)
     house_number = models.CharField(max_length=10)
-    city = models.CharField(max_length=255)
-    country = models.CharField(max_length=255)
-    postal_code = models.CharField(max_length=10)
+    city = models.CharField(max_length=50)
+    country = models.CharField(max_length=50)
+    postal_code = models.CharField(max_length=20)
 
     def __str__(self):
         return self.full_name
 
 
 class CoverLetter(models.Model):
-    text = models.TextField()
+    job = models.ForeignKey(Job, on_delete=models.CASCADE, related_name='cover_letters')
+    cover_letter = models.TextField()
 
     def __str__(self):
         return f"Cover Letter ({self.id})"
 
 
 class Experience(models.Model):
-    place_of_work = models.CharField(max_length=255)
-    role = models.CharField(max_length=255)
+    job = models.ForeignKey(Job, on_delete=models.CASCADE, related_name='experiences')
+    workplace = models.CharField(max_length=100)
+    role = models.CharField(max_length=100)
     start_date = models.DateField()
-    end_date = models.DateField(blank=True, null=True)
+    end_date = models.DateField()
 
     def __str__(self):
         return f"{self.role} at {self.place_of_work}"
 
 
 class Recommendation(models.Model):
+<<<<<<< Updated upstream
     name = models.CharField(max_length=255)
     email = models.EmailField()
     phone_number = models.CharField(max_length=20)
@@ -57,3 +65,11 @@ class Application(models.Model):
 
     class Meta:
         ordering = ['-created_at']
+=======
+    job = models.ForeignKey(Job, on_delete=models.CASCADE, related_name='recommendations')
+    rec_name = models.CharField(max_length=100)
+    rec_email = models.EmailField()
+    rec_phone = models.CharField(max_length=15)
+    rec_role = models.CharField(max_length=100)
+    rec_contact = models.BooleanField(default=False)
+>>>>>>> Stashed changes
