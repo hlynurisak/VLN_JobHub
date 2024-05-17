@@ -6,6 +6,7 @@ from django.contrib.auth.views import LoginView
 from application.models import Application
 from .forms import UpdateUserForm, UpdateProfileForm
 from JobHub.anonymous_required import anonymous_required
+from .models import Profile
 
 
 @anonymous_required('home')
@@ -13,7 +14,8 @@ def register(request):
     if request.method == 'POST':
         user_create_form = UserCreationForm(data=request.POST)
         if user_create_form.is_valid():
-            user_create_form.save()
+            user = user_create_form.save()
+            Profile.objects.create(user=user)
             return redirect('login')
 
         else:
