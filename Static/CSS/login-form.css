@@ -1,3 +1,29 @@
+.login-container {
+    width: 100%;
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    text-align: center;
+}
+
+.login-container h1 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.login-container .form-horizontal {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.login-container .form-horizontal .btn {
+    align-self: center;
+}
+
 .login-screen {
     display: flex;
     justify-content: center;
@@ -13,11 +39,18 @@
     height: 2rem;
 }
 
-.login-form{
+.login-form {
     margin-left: auto;
 }
 
-form .logout-btn{
+form .logout-btn {
     color: red;
     background-color: #FFFFFF;
+}
+
+@media (max-width: 768px) {
+    .login-container {
+        width: 90%;
+        padding: 10px;
+    }
 }
