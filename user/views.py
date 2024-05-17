@@ -9,7 +9,7 @@ from JobHub.anonymous_required import anonymous_required
 from .models import Profile
 
 
-@anonymous_required('home')
+@anonymous_required('/users/profile')
 def register(request):
     if request.method == 'POST':
         user_create_form = UserCreationForm(data=request.POST)
@@ -28,7 +28,7 @@ def register(request):
     })
 
 
-@anonymous_required('home')
+@anonymous_required('/users/profile')
 class CustomLogin(LoginView):
     template_name = 'user/login.html'
 
