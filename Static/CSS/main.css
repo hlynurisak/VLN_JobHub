@@ -192,3 +192,26 @@ h2 {
     background-color: var(--blue_color_hover);
     color: var(--background_color);
 }
+#filter-sidebar {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 300px;
+    height: 100%;
+    background-color: white;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    z-index: 1000;
+    overflow-y: auto;
+}
+
+#filter-button {
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.filter-section {
+    margin-bottom: 20px;
+}
+
