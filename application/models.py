@@ -1,5 +1,6 @@
 from django.db import models
-from JobHub.models import Job, Company, User
+from JobHub.models import Job, Company
+from django.contrib.auth.models import User
 
 
 class ContactInformation(models.Model):
