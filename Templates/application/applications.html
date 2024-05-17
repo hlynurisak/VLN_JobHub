@@ -1,142 +1,52 @@
 {% extends 'base.html' %}
 {% block content %}
-    <div class="container-applications" id="container-applications">
-        <div class="application-info">
-            {% with job.company.get_first_image as company_image %}
-                <div class="application-logo-container">
-                    <img class="application-logo" src="{{ company_image }}" alt="{{ job.name }} Logo">
-                </div>
-            {% endwith %}
-            <a href="{% url 'delete_joblisting' job.id %}" class="black btn btn-primary">Delete Joblisting</a>
-            <div class="application-title">
-                <p id="job-title">{{ job.name }}</p>
-                <p id="job-company">{{ job.company.name }}</p>
-                <p id="job-location">{{ job.location }}</p>
+<div class="container-application-form" id="container-application-form">
+    <header class="application-form-info">
+        {% with job.company.get_first_image as company_image %}
+            <div class="application-form-logo-container">
+                <img class="application-form-logo" src="{{ company_image }}" alt="{{ job.name }} Logo">
             </div>
+        {% endwith %}
+        <p id="job-title">{{ job.name }}</p>
+        <button class="btn return-btn" id="return-btn">Return</button>
+    </header>
+    <div class="application-tab-container">
+        <div class="application-button-container">
+            <button class="btn application-form-btn" id="application-form-btn-one">Contact information</button>
+            <button class="btn application-form-btn" id="application-form-btn-two">Cover letter</button>
+            <button class="btn application-form-btn" id="application-form-btn-three">Experiences</button>
+            <button class="btn application-form-btn" id="application-form-btn-four">Recommendations</button>
+            <button class="btn application-form-btn" id="application-form-btn-five">Review</button>
         </div>
-    </div>
-    <div>
-        <div class="apply-btn-container">
-            <button class="btn apply-btn" id="apply-btn">Apply</button>
+        <div class="progress-bar-container">
+            <div class="progress-bar" id="progress-bar"></div>
         </div>
-    </div>
-    <div class="container-application-form" id="container-application-form">
-        <div class="application-form" id="application-form">
-            <header class="application-form-info">
-                {% with job.company.get_first_image as company_image %}
-                    <div class="application-form-logo-container">
-                        <img class="application-form-logo" src="{{ company_image }}" alt="{{ job.name }} Logo">
-                    </div>
-                {% endwith %}
-                <p id="job-title">{{ job.name }}</p>
-                <button class="btn return-btn" id="return-btn">Return</button>
-            </header>
-            <div class="application-form-content">
-                <div class="application-button-container">
-                    <button class="btn application-form-btn" id="application-form-btn-one">Contact information</button>
-                    <button class="btn application-form-btn" id="application-form-btn-two">Cover letter</button>
-                    <button class="btn application-form-btn" id="application-form-btn-three">Experiences</button>
-                    <button class="btn application-form-btn" id="application-form-btn-four">Recommendations</button>
-                    <button class="btn application-form-btn" id="application-form-btn-five">Review</button>
-                </div>
-                <div class="progress-bar-container">
-                    <div class="progress-bar" id="progress-bar"></div>
-                </div>
-                <div class="application-form-tab" id="application-form-tab-one">
-                    <div class="input-field-container">
-                        <div class="input-field-section">
-                            <p>Name</p>
-                            <label><input type="text" class="input-field" id="name-field" placeholder="Name"></label>
-                        </div>
-                        <div class="input-field-section">
-                            <p>Street name</p>
-                            <label><input type="text" class="input-field" id="street-field" placeholder="Street name"></label>
-                        </div>
-                        <div class="input-field-section">
-                            <p>House number</p>
-                            <label><input type="text" class="input-field" id="house-field" placeholder="House number"></label>
-                        </div>
-                        <div class="input-field-section">
-                            <p>City</p>
-                            <label><input type="text" class="input-field" id="city-field" placeholder="City"></label>
-                        </div>
-                        <div class="input-field-section">
-                            <p>Country</p>
-                            <label><input type="text" class="input-field" id="country-field" placeholder="Country"></label> <!-- Needs to be a select element -->
-                        </div>
-                        <div class="input-field-section">
-                            <p>Postal code</p>
-                            <label><input type="text" class="input-field" id="postal-field" placeholder="Postal code"></label>
-                        </div>
-                    </div>
-                </div>
-                <div class="application-form-tab" id="application-form-tab-two">
-                    <div class="input-field-container">
-                        <div class="input-field-section">
-                            <p>Cover letter</p>
-                            <label><textarea class="input-field" id="cover-letter-field"></textarea></label>
-                        </div>
-                    </div>
-                </div>
-                <div class="application-form-tab" id="application-form-tab-three">
-                    <div class="input-field-container">
-                        <div class="input-field-section">
-                            <p>Place of work</p>
-                            <label><input type="text" class="input-field" id="workplace-field" placeholder="Place of work"></label>
-                        </div>
-                        <div class="input-field-section">
-                            <p>Role</p>
-                            <label><input type="text" class="input-field" id="role-field" placeholder="Role"></label>
-                        </div>
-                        <div class="input-field-section">
-                            <p>Start date</p>
-                            <label><input type="text" class="input-field" id="start-date-field" placeholder="Start date"></label>
-                        </div>
-                        <div class="input-field-section">
-                            <p>End date</p>
-                            <label><input type="text" class="input-field" id="end-date-field" placeholder="End date"></label>
-                        </div>
-                    </div>
-                </div>
-                <div class="application-form-tab" id="application-form-tab-four">
-                    <div class="input-field-container">
-                        <div class="input-field-section">
-                            <p>Name</p>
-                            <label><input type="text" class="input-field" id="rec-name-field" placeholder="Name"></label>
-                        </div>
-                        <div class="input-field-section">
-                            <p>Email</p>
-                            <label><input type="text" class="input-field" id="rec-email-field" placeholder="Email"></label>
-                        </div>
-                        <div class="input-field-section">
-                            <p>Phone number</p>
-                            <label><input type="text" class="input-field" id="rec-phone-field" placeholder="Phone number"></label>
-                        </div>
-                        <div class="input-field-section">
-                            <p>Role</p>
-                            <label><input type="text" class="input-field" id="rec-role-field" placeholder="Role"></label>
-                        </div>
-                        <div class="input-field-section">
-                            <p>May be contacted</p>
-                            <label><input type="checkbox" class="input-field" id="rec-contact-field" placeholder="May be contacted"></label>
-                        </div>
-                    </div>
-                </div>
-                <div class="application-form-tab" id="application-form-tab-five">
-                    
-                </div>
+        <form method="post">
+            {% csrf_token %}
+            <div class="application-form-tab" id="application-form-tab-one">
+                {{ contact_form.as_p }}
+            </div>
+            <div class="application-form-tab" id="application-form-tab-two">
+                {{ cover_form.as_p }}
+            </div>
+            <div class="application-form-tab" id="application-form-tab-three">
+                {{ experience_form.as_p }}
+            </div>
+            <div class="application-form-tab" id="application-form-tab-four">
+                {{ recommendation_form.as_p }}
+            </div>
+            <div class="application-form-tab" id="application-form-tab-five">
+                <div id = review-content></div>
                 <div class="form-button-container">
-                    <button class="btn back-btn" id="back-btn">Back</button>
-                    <button class="btn continue-btn" id="continue-btn">Continue</button>
-                    <button class="btn send-application-btn" id="send-application-btn">Send</button>
-                </div>
+                    <button type="submit" class="btn send-application-btn" id="send-application-btn">Send Application</button>
+                </div> 
             </div>
-        </div>
+        </form>
+        <div class="form-button-container">
+            <button class="btn back-btn" id="back-btn">Back</button>
+            <button class="btn continue-btn" id="continue-btn">Continue</button>
+            <button class="btn send-application-btn" id="send-application-btn">Send Application</button>
+        </div> 
     </div>
-    <div class="successful-application-container" id="successful-application-container">
-        <div class="successful-application-info" id="successful-application-info">
-            <p>Congratulations!!!</p>
-            <button class="btn home-screen-btn" id="home-screen-btn">Return to home screen</button>
-        </div>
-    </div>
+</div>
 {% endblock %}
