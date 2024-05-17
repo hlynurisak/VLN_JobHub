@@ -5,7 +5,7 @@
         <button id="filter-button" class="btn btn-secondary">&#9776;</button>
         <form method="get" id="search-form">
             <input type="text" name="search" class="search-bar" placeholder="Search..." value="{{ request.GET.search|default_if_none:'' }}">
-            <button type="submit" class="btn btn-primary">Search</button>
+            <button type="submit" class="btn btn-primary search-btn">Search</button>
         </form>
         <a href="{% url 'create_joblisting' %}" class="btn btn-primary create-joblisting-btn">Create Joblisting</a>
     </div>

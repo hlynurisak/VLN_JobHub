@@ -167,24 +167,60 @@ h2 {
     justify-content: center;
     align-items: center;
     margin-top: 4rem;
+    gap: 10px;
 }
 
 .search-bar {
     width: 50%;
-    padding: 8px;
+    padding: 10px;
+    border: 2px solid var(--blue_color);
     border-radius: 25px;
-    margin-right: 10px;
+    font-size: 1rem;
+}
+
+#filter-button {
+    font-size: 24px;
+    padding: 10px 20px;
+    border: 2px solid var(--blue_color);
+    background-color: var(--blue_color);
+    color: #fff;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+#filter-button:hover {
+    background-color: var(--blue_color_hover);
+    color: #fff;
+}
+
+.search-btn {
+    padding: 10px 20px;
+    background-color: var(--blue_color);
+    color: #fff;
+    border: 2px solid var(--blue_color);
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.search-btn:hover {
+    background-color: var(--blue_color_hover);
+    color: #fff;
 }
 
 .create-joblisting-btn,
 .create-company-btn {
-    padding: 8px 16px;
+    padding: 10px 20px;
     border-radius: 25px;
     background-color: var(--blue_color);
     color: var(--background_color);
     text-align: center;
     text-decoration: none;
     font-size: 1rem;
+    border: 2px solid var(--blue_color);
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
 }
 
 .create-joblisting-btn:hover,
@@ -206,12 +242,6 @@ h2 {
     overflow-y: auto;
 }
 
-#filter-button {
-    font-size: 24px;
-    cursor: pointer;
-}
-
 .filter-section {
     margin-bottom: 20px;
 }
-
