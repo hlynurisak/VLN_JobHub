@@ -17,13 +17,12 @@
     </div>
     <div id="job-description" class="job-description">{{ job.description|safe }}</div>
     <div class="apply-btn-container">
-        {% for application in job.application_set.all %}
-            {% if application.applicant == request.user %}
-                <p>You applied on {{ application.created_at }}. Status: {{ application.status }}</p>
-            {% endif %}
-        {% empty %}
+        {% if application %}
+            <a href="#" class="btn applied-btn" id="applied-btn">Applied</a>
             <a href="{% url 'apply' job.id %}" class="btn apply-btn" id="apply-btn">Apply</a>
-        {% endfor %} 
+        {% else %}
+            <a href="{% url 'apply' job.id %}" class="btn apply-btn" id="apply-btn">Apply</a>
+        {% endif %}
     </div>
 </div>
 {% endblock %}
