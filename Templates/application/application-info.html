@@ -5,18 +5,17 @@
         <div class="application-logo-container">
             <img class="application-logo" src="{{ job.company.get_first_image }}" alt="{{ job.title }} Logo">
         </div>
-        <div class="application-title">
-            <p id="job-title">{{ job.title }}</p>
+        <div class="application-details">
+            <h2 id="job-title">{{ job.title }}</h2>
             <p id="job-company">{{ job.company.name }}</p>
             <p id="job-location">{{ job.location }}</p>
+            <p id="job-type">{{ job.job_type }}</p>
             <p id="job-category">{{ job.category }}</p>
             <p id="job-due-date">Due Date: {{ job.due_date }}</p>
             <p id="job-start-date">Start Date: {{ job.start_date }}</p>
-            <div id="job-description">{{ job.description|safe }}</div>
         </div>
     </div>
-</div>
-<div>
+    <div id="job-description" class="job-description">{{ job.description|safe }}</div>
     <div class="apply-btn-container">
         {% for application in job.application_set.all %}
             {% if application.applicant == request.user %}
