@@ -13,5 +13,5 @@ class JobCreateForm(ModelForm):
             'due_date': widgets.DateInput(attrs={'class': 'form-control'}),
             'company': widgets.Select(attrs={'class': 'form-control'}),
             'start_date': widgets.DateInput(attrs={'class': 'form-control'}),
-
+            'job_type': forms.Select(attrs={'class': 'form-control'}),
         }
