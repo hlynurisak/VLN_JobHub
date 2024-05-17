@@ -13,4 +13,5 @@ class CreateCompany(ModelForm):
                 'name': widgets.TextInput(attrs={'class': 'form-control'}),
                 'address': widgets.DateInput(attrs={'class': 'form-control'}),
                 'link_to_page': widgets.TextInput(attrs={'class': 'form-control'}),
+                'description': widgets.TextInput(attrs={'class': 'form'}),
             }
