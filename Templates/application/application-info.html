@@ -18,11 +18,13 @@
 </div>
 <div>
     <div class="apply-btn-container">
-        {% if application %}
-            <p>You applied on {{ application.applied_on }}. Status: {{ application.status }}</p>
-        {% else %}
+        {% for application in job.application_set.all %}
+            {% if application.applicant == request.user %}
+                <p>You applied on {{ application.created_at }}. Status: {{ application.status }}</p>
+            {% endif %}
+        {% empty %}
             <a href="{% url 'apply' job.id %}" class="btn apply-btn" id="apply-btn">Apply</a>
-        {% endif %}
+        {% endfor %} 
     </div>
 </div>
 {% endblock %}
