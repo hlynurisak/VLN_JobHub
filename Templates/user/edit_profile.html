@@ -1,10 +1,13 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block content %}
-    <h1>Edit Profile "{{ user.username }}"</h1>
+<div class="edit-profile-container">
+    <h1>Edit profile for user "{{ user.username }}"</h1>
     <form class="form form-horizontal" method="post" id="edit-profile-info">
         {% csrf_token %}
         {{ user_form.as_p }}
         {{ profile_form.as_p }}
+        <button type="submit" class="btn btn-primary mt-3" form="edit-profile-info" value="Submit">Submit</button>
     </form>
-    <button type="submit" form="edit-profile-info" value="Submit">Submit</button>
+</div>
 {% endblock %}
