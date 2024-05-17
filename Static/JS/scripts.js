@@ -82,10 +82,12 @@ document.addEventListener('DOMContentLoaded', function() {
             addExperienceBtn.style.display = 'inline-block';
             addRecommendationBtn.style.display = 'none';
             continueBtn.style.display = 'inline-block';
+            sendApplicationBtn.style.display = 'none';
         }
         else if(currentIndex === 3){
             addRecommendationBtn.style.display = 'inline-block';
             continueBtn.style.display = 'inline-block';
+            sendApplicationBtn.style.display = 'none';
             addExperienceBtn.style.display = 'none';
         } else {
             continueBtn.style.display = 'inline-block';
@@ -108,14 +110,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
     returnBtn.addEventListener('click', function () {
-        document.getElementById('container-application-form').style.display = 'none';
-        document.getElementById('container-applications').style.display = 'block';
+        const jobId = returnBtn.getAttribute('data-job-id')
+        window.location.href = `/applications/application-info/${jobId}`
     });
 
     btnOne.addEventListener('click', function () {
         hideAllTabs()
         progressBar.style.width = '20%'
-        document.getElementById('application-form-tab-one').style.display = 'block';
+        document.getElementById('application-form-tab-one').style.display = 'flex';
         currentIndex = 0;
         document.dispatchEvent(indexChangeEvent)
     });
@@ -123,7 +125,7 @@ document.addEventListener('DOMContentLoaded', function() {
     btnTwo.addEventListener('click', function () {
         hideAllTabs()
         progressBar.style.width = '40%'
-        document.getElementById('application-form-tab-two').style.display = 'block';
+        document.getElementById('application-form-tab-two').style.display = 'flex';
         currentIndex = 1
         document.dispatchEvent(indexChangeEvent)
     });
@@ -131,7 +133,7 @@ document.addEventListener('DOMContentLoaded', function() {
     btnThree.addEventListener('click', function () {
         hideAllTabs()
         progressBar.style.width = '60%'
-        document.getElementById('application-form-tab-three').style.display = 'block';
+        document.getElementById('application-form-tab-three').style.display = 'flex';
         currentIndex = 2
         document.dispatchEvent(indexChangeEvent)
     });
@@ -139,7 +141,7 @@ document.addEventListener('DOMContentLoaded', function() {
     btnFour.addEventListener('click', function () {
         hideAllTabs()
         progressBar.style.width = '80%'
-        document.getElementById('application-form-tab-four').style.display = 'block';
+        document.getElementById('application-form-tab-four').style.display = 'flex';
         currentIndex = 3
         document.dispatchEvent(indexChangeEvent)
     });
@@ -147,16 +149,18 @@ document.addEventListener('DOMContentLoaded', function() {
     btnFive.addEventListener('click', function () {
         hideAllTabs()
         progressBar.style.width = '100%'
-        document.getElementById('application-form-tab-five').style.display = 'block';
+        document.getElementById('application-form-tab-five').style.display = 'flex';
         currentIndex = 4
         document.dispatchEvent(indexChangeEvent)
     });
 
+   let formTemplateThree = document.querySelector('#application-form-tab-three .dynamic-form').outerHTML;
+   let formTemplateFour = document.querySelector('#application-form-tab-four .dynamic-form').outerHTML;
+
     document.getElementById('add-experience').addEventListener('click', function() {
         let totalForms = document.getElementById('id_experiences-TOTAL_FORMS');
         let formIdx = totalForms.value;
-        let formTemplate = document.querySelector('.dynamic-form').outerHTML;
-        let newForm = formTemplate.replace(/__prefix__/g, formIdx);
+        let newForm = formTemplateThree.replace(/__prefix__/g, formIdx);
 
         newForm = newForm.replace(/id_experiences-0/g, 'id_experiences-' + formIdx);
         newForm = newForm.replace(/name="experiences-0/g, 'name="experiences-' + formIdx);
@@ -170,8 +174,7 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('add-recommendation').addEventListener('click', function() {
         let totalForms = document.getElementById('id_recommendations-TOTAL_FORMS');
         let formIdx = totalForms.value;
-        let formTemplate = document.querySelector('.dynamic-form').outerHTML;
-        let newForm = formTemplate.replace(/__prefix__/g, formIdx);
+        let newForm = formTemplateFour.replace(/__prefix__/g, formIdx);
 
         newForm = newForm.replace(/id_recommendations-0/g, 'id_recommendations-' + formIdx);
         newForm = newForm.replace(/name="recommendations-0/g, 'name="recommendations-' + formIdx);
@@ -181,6 +184,10 @@ document.addEventListener('DOMContentLoaded', function() {
         totalForms.value = parseInt(formIdx) + 1;
         updateRemoveButtons();
     });
+
+    sendApplicationBtn.addEventListener('click', function () {
+        document.querySelector('form').submit()
+    })
 
     function updateRemoveButtons() {
         document.querySelectorAll('.remove-form').forEach(button => {

@@ -225,11 +225,37 @@
 
 .application-form-tab {
     height: 100%;
-    width: 100%;
+    width: 30rem;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    color: var(--blue_color);
 }
+
+.application-form-tab p {
+    display: flex;
+    justify-content: center;
+}
+
+.application-form-tab label {
+    width: 12rem;
+    padding: 4px;
+    box-sizing: border-box;
+}
+
+.application-form-tab input {
+    border-radius: 1rem;
+    width: 12rem;
+}
+
+.application-form-tab .dynamic-form {
+    margin-bottom: 1rem;
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+}
+
 
 /* Input styling */
 
@@ -284,7 +310,7 @@
     border: 2px solid white;
 }
 
-.add-experience-btn, .add-recommendation-btn {
+.add-experience-btn, .add-recommendation-btn, .send-application-btn{
     display: none;
 }
 
@@ -308,46 +334,4 @@
 
 #experience-field-container {
     display: none;
-}
-
-.send-application-btn {
-    display: none;
-}
-
-.successful-application-container {
-    display: none;
-}
-
-.successful-application-info {
-    display: flex;
-    flex-direction: column;
-    height: 80vh;
-    justify-content: center;
-    align-items: center;
-}
-
-/* Review Information Styling */
-
-.review-information-container {
-    display: flex;
-    flex-direction: column;
-    gap: 4rem;
-    justify-content: center;
-    align-items: center;
-}
-
-.contact-information-container, .cover-letter-container, .experiences-container, .recommendations-container {
-    width: 26rem;
-}
-
-.review-header {
-    text-align: center;
-    font-size: 20px;
-    font-weight: bold;
-    color: var(--blue_color);
-}
-
-.review-info {
-    display: flex;
-    flex-direction: column;
 }

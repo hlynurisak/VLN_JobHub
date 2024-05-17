@@ -171,7 +171,7 @@ h2 {
 }
 
 .search-bar {
-    width: 50%;
+    width: 80%;
     padding: 10px;
     border: 2px solid var(--blue_color);
     border-radius: 25px;
@@ -180,11 +180,11 @@ h2 {
 
 #filter-button {
     font-size: 24px;
-    padding: 10px 20px;
+    width: 4rem;
     border: 2px solid var(--blue_color);
     background-color: var(--blue_color);
     color: #fff;
-    border-radius: 25px;
+    border-radius: 1rem;
     cursor: pointer;
     transition: background-color 0.3s, color 0.3s;
 }
@@ -192,6 +192,13 @@ h2 {
 #filter-button:hover {
     background-color: var(--blue_color_hover);
     color: #fff;
+}
+
+#search-form {
+    display: flex;
+    flex-direction: row;
+    width: 37rem;
+    gap: 10px
 }
 
 .search-btn {

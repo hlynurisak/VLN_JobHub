@@ -28,6 +28,13 @@ class RecommendationForm(forms.ModelForm):
     class Meta:
         model = Recommendation
         fields = '__all__'
+        labels = {
+            'rec_name': 'Recommender Name',
+            'rec_email': 'Recommender Email',
+            'rec_phone': 'Recommender Phone',
+            'rec_role': 'Recommender Role',
+            'rec_contact': 'Contact Permission'
+        }
 
 
 ExperienceFormSet = modelformset_factory(Experience, form=ExperienceForm, extra=1, can_delete=False)

@@ -8,7 +8,7 @@
             </div>
         {% endwith %}
         <p id="job-title">{{ job.name }}</p>
-        <button class="btn return-btn" id="return-btn">Return</button>
+        <button class="btn return-btn" id="return-btn" data-job-id="{{ job.id }}">Return</button>
     </header>
     <div class="application-tab-container">
         <div class="application-button-container">
@@ -49,9 +49,6 @@
             </div>
             <div class="application-form-tab" id="application-form-tab-five">
                 <div id = review-content></div>
-                <div class="form-button-container">
-                    <button type="submit" class="btn send-application-btn" id="send-application-btn">Send Application</button>
-                </div> 
             </div>
         </form>
         <div class="form-button-container">
@@ -59,7 +56,7 @@
             <button class="btn add-experience-btn" type="button" id="add-experience">Add Experience</button>
             <button class="btn add-recommendation-btn" type="button" id="add-recommendation">Add Recommendation</button>
             <button class="btn continue-btn" id="continue-btn">Continue</button>
-            <button class="btn send-application-btn" id="send-application-btn">Send Application</button>
+            <button type="submit" class="btn send-application-btn" id="send-application-btn">Send Application</button>
         </div> 
     </div>
 </div>
