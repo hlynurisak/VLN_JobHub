@@ -30,5 +30,5 @@ class RecommendationForm(forms.ModelForm):
         fields = '__all__'
 
 
-ExperienceFormSet = modelformset_factory(Experience, form=ExperienceForm, extra=1, can_delete=True)
-RecommendationFormSet = modelformset_factory(Recommendation, form=RecommendationForm, extra=1, can_delete=True)
+ExperienceFormSet = modelformset_factory(Experience, form=ExperienceForm, extra=1, can_delete=False)
+RecommendationFormSet = modelformset_factory(Recommendation, form=RecommendationForm, extra=1, can_delete=False)

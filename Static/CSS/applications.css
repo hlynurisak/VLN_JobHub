@@ -274,14 +274,18 @@
     margin-top: auto;
 }
 
-.back-btn, .add-experience-btn {
+.back-btn, .add-experience-btn, .add-recommendation-btn {
     background-color: var(--blue_color);
     color: #FFFFFF;
 }
 
-.back-btn:hover, .add-experience-btn:hover {
+.back-btn:hover, .add-experience-btn:hover .add-recommendation-btn:hover {
     background-color: var(--blue_color_hover);
     border: 2px solid white;
+}
+
+.add-experience-btn, .add-recommendation-btn {
+    display: none;
 }
 
 .continue-btn, .send-application-btn, .home-screen-btn {

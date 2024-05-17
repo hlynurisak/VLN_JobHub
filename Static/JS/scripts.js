@@ -15,6 +15,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const sendApplicationBtn = document.getElementById('send-application-btn');
     const backBtn = document.getElementById('back-btn');
     const returnBtn = document.getElementById('return-btn');
+    const addExperienceBtn = document.getElementById('add-experience')
+    const addRecommendationBtn = document.getElementById('add-recommendation')
 
     const buttons = [btnOne, btnTwo, btnThree, btnFour, btnFive];
     let currentIndex = 0;
@@ -71,11 +73,25 @@ document.addEventListener('DOMContentLoaded', function() {
     document.addEventListener('indexChange', function () {
         if (currentIndex === 4) {
             continueBtn.style.display = 'none';
+            addExperienceBtn.style.display = 'none';
+            addRecommendationBtn.style.display = 'none';
             sendApplicationBtn.style.display = 'block';
             updateReviewContent();
+        }
+        else if(currentIndex === 2){
+            addExperienceBtn.style.display = 'inline-block';
+            addRecommendationBtn.style.display = 'none';
+            continueBtn.style.display = 'inline-block';
+        }
+        else if(currentIndex === 3){
+            addRecommendationBtn.style.display = 'inline-block';
+            continueBtn.style.display = 'inline-block';
+            addExperienceBtn.style.display = 'none';
         } else {
-            continueBtn.style.display = 'block';
+            continueBtn.style.display = 'inline-block';
             sendApplicationBtn.style.display = 'none';
+            addExperienceBtn.style.display = 'none';
+            addRecommendationBtn.style.display = 'none'
         }
     });
 
@@ -160,7 +176,7 @@ document.addEventListener('DOMContentLoaded', function() {
         newForm = newForm.replace(/id_recommendations-0/g, 'id_recommendations-' + formIdx);
         newForm = newForm.replace(/name="recommendations-0/g, 'name="recommendations-' + formIdx);
 
-        let container = document.querySelector('.application-form-tab-four');
+        let container = document.getElementById('application-form-tab-four');
         container.insertAdjacentHTML('beforeend', newForm);
         totalForms.value = parseInt(formIdx) + 1;
         updateRemoveButtons();

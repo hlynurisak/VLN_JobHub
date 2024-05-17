@@ -37,7 +37,6 @@
                         <button type="button" class="remove-form">Remove</button>
                     </div>
                 {% endfor %}
-                <button type="button" id="add-experience">Add Experience</button>
             </div>
             <div class="application-form-tab" id="application-form-tab-four">
                 {{ recommendation_formset.management_form }}
@@ -47,7 +46,6 @@
                         <button type="button" class="remove-form">Remove</button> 
                     </div>
                 {% endfor %}
-                <button type="button" id="add-recommendation">Add Recommendation</button>
             </div>
             <div class="application-form-tab" id="application-form-tab-five">
                 <div id = review-content></div>
@@ -58,6 +56,8 @@
         </form>
         <div class="form-button-container">
             <button class="btn back-btn" id="back-btn">Back</button>
+            <button class="btn add-experience-btn" type="button" id="add-experience">Add Experience</button>
+            <button class="btn add-recommendation-btn" type="button" id="add-recommendation">Add Recommendation</button>
             <button class="btn continue-btn" id="continue-btn">Continue</button>
             <button class="btn send-application-btn" id="send-application-btn">Send Application</button>
         </div> 
