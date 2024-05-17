@@ -24,9 +24,11 @@ document.addEventListener('DOMContentLoaded', function() {
         view: window
     });
 
+    const indexChangeEvent = new Event('indexChange')
 
-    document.addEventListener('click', function () {
+    document.addEventListener('indexChange', function () {
         if (currentIndex === 4){
+            reviewInformation()
             continueBtn.style.display = 'none';
             sendApplicationBtn.style.display = 'block';
         }
@@ -34,8 +36,9 @@ document.addEventListener('DOMContentLoaded', function() {
             continueBtn.style.display = 'block';
             sendApplicationBtn.style.display = 'none';
         }
-    })
+    });
     function switchButtons(index){
+        document.dispatchEvent(indexChangeEvent)
         buttons[index].dispatchEvent(click)
     }
 
@@ -92,6 +95,7 @@ document.addEventListener('DOMContentLoaded', function() {
         progressBar.style.width = '20%'
         document.getElementById('application-form-tab-one').style.display = 'block';
         currentIndex = 0;
+        document.dispatchEvent(indexChangeEvent)
     });
 
     btnTwo.addEventListener('click', function() {
@@ -99,6 +103,7 @@ document.addEventListener('DOMContentLoaded', function() {
         progressBar.style.width = '40%'
         document.getElementById('application-form-tab-two').style.display = 'block';
         currentIndex = 1
+        document.dispatchEvent(indexChangeEvent)
     });
 
     btnThree.addEventListener('click', function() {
@@ -106,6 +111,7 @@ document.addEventListener('DOMContentLoaded', function() {
         progressBar.style.width = '60%'
         document.getElementById('application-form-tab-three').style.display = 'block';
         currentIndex = 2
+        document.dispatchEvent(indexChangeEvent)
     });
 
     btnFour.addEventListener('click', function() {
@@ -113,6 +119,7 @@ document.addEventListener('DOMContentLoaded', function() {
         progressBar.style.width = '80%'
         document.getElementById('application-form-tab-four').style.display = 'block';
         currentIndex = 3
+        document.dispatchEvent(indexChangeEvent)
     });
 
     btnFive.addEventListener('click', function() {
@@ -120,6 +127,7 @@ document.addEventListener('DOMContentLoaded', function() {
         progressBar.style.width = '100%'
         document.getElementById('application-form-tab-five').style.display = 'block';
         currentIndex = 4
+        document.dispatchEvent(indexChangeEvent)
     });
 
     /* JS Data object definitions */
@@ -205,5 +213,50 @@ document.addEventListener('DOMContentLoaded', function() {
         saveCoverLetter();
         saveExperience();
         saveRecommendation();
+
+        const reviewTab = document.getElementById('application-form-tab-five');
+        reviewTab.innerHTML = `
+            <div class="review-information-container">
+                <div class="contact-information-container">
+                    <p class="review-header">Contact Information</p>
+                    <div class="review-info">
+                        <p>Name: ${contact.fullName}</p>
+                        <p>Street: ${contact.streetName} ${contact.houseNumber}</p>
+                        <p>City: ${contact.city}</p>
+                        <p>Country: ${contact.country}</p>
+                        <p>Postal Code: ${contact.postalCode}</p>
+                    </div>
+                </div>
+                <div class="cover-letter-container">
+                    <p class="review-header">Cover Letter</p>
+                    <div class="review-info">
+                        <p>${letter.text}</p>
+                    </div>
+                </div>
+                <div class="experiences-container">
+                    <p class="review-header">Experiences</p>
+                    <div class="review-info">
+                        ${experiences.getAllExperiences().map(experience => `
+                            <p>Workplace: ${experience.placeOfWork}</p>
+                            <p>Role: ${experience.role}</p>
+                            <p>Start Date: ${experience.startDate}</p>
+                            <p>End Date: ${experience.endDate}</p>
+                        `).join('')}
+                    </div>
+                </div>
+                <div class="recommendations-container">
+                    <p class="review-header">Recommendations</p>
+                    <div class="review-info">
+                        ${recommendations.getAllRecommendations().map(recommendation => `
+                            <p>Name: ${recommendation.name}</p>
+                            <p>Email: ${recommendation.email}</p>
+                            <p>Phone: ${recommendation.phoneNumber}</p>
+                            <p>Role: ${recommendation.role}</p>
+                            <p>May Be Contacted: ${recommendation.mayBeContacted}</p>
+                        `).join('')}
+                    </div>
+                </div>
+            </div>
+        `;
     }
 });
