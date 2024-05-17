@@ -73,6 +73,57 @@
 /* Application form styling */
 
 .container-application-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.application-form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.application-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.application-tab-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 40rem;
+    height: auto;
+    width: 100%;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    padding: 2rem;
+    border-radius: 1rem;
+    background-color: #FFFFFF;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#application-form-tab-one {
+    display: block;
+}
+
+#application-form-tab-two {
+    display: none;
+}
+
+#application-form-tab-three {
+    display: none;
+}
+
+#application-form-tab-four {
+    display: none;
+}
+
+#application-form-tab-five {
     display: none;
 }
 
@@ -162,29 +213,12 @@
 }
 
 .progress-bar {
-    width: 0;
+    width: 20%;
     height: 100%;
     background-color: var(--blue_color);
 }
 
-#application-form-tab-one {
-    display: none;
-}
-
-#application-form-tab-two {
-    display: none;
-}
-
-#application-form-tab-three {
-    display: none;
-}
-
-#application-form-tab-four {
-    display: none;
-}
-
 #application-form-tab-five {
-    display: none;
     height: auto;
     box-sizing: border-box;
 }
@@ -240,9 +274,14 @@
     margin-top: auto;
 }
 
-.back-btn {
+.back-btn, .add-experience-btn {
     background-color: var(--blue_color);
     color: #FFFFFF;
+}
+
+.back-btn:hover, .add-experience-btn:hover {
+    background-color: var(--blue_color_hover);
+    border: 2px solid white;
 }
 
 .continue-btn, .send-application-btn, .home-screen-btn {
@@ -253,6 +292,18 @@
 .continue-btn:hover, .send-application-btn:hover, .home-screen-btn:hover {
     background-color: var(--red_color);
     border: 2px solid white;
+}
+
+/* Experience and Review */
+
+.add-experience-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#experience-field-container {
+    display: none;
 }
 
 .send-application-btn {
