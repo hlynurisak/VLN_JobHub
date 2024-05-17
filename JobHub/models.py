@@ -17,7 +17,10 @@ class Job(models.Model):
     due_date = models.DateField(null=True, blank=True)
     start_date = models.DateField(null=True, blank=True)
     company = models.ForeignKey(Company, on_delete=models.CASCADE)
-
+    job_type = models.CharField(
+        max_length=2,
+        choices=[('FT', 'Full-time'), ('PT', 'Part-time')],
+        default='FT')
 
     def __str__(self):
         return self.name
