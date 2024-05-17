@@ -9,9 +9,11 @@ document.addEventListener('DOMContentLoaded', function() {
     const btnFour = document.getElementById('application-form-btn-four')
     const btnFive = document.getElementById('application-form-btn-five')
     const continueBtn = document.getElementById('continue-btn')
+    const sendApplicationBtn = document.getElementById('send-application-btn')
     const backBtn = document.getElementById('back-btn')
     const applyBtn = document.getElementById('apply-btn')
     const returnBtn = document.getElementById('return-btn')
+    const homeScreenBtn = document.getElementById('home-screen-btn')
 
     const buttons = [btnOne, btnTwo, btnThree, btnFour, btnFive];
     let currentIndex = 0;
@@ -22,12 +24,31 @@ document.addEventListener('DOMContentLoaded', function() {
         view: window
     });
 
+
+    document.addEventListener('click', function () {
+        if (currentIndex === 4){
+            continueBtn.style.display = 'none';
+            sendApplicationBtn.style.display = 'block';
+        }
+        else {
+            continueBtn.style.display = 'block';
+            sendApplicationBtn.style.display = 'none';
+        }
+    })
     function switchButtons(index){
         buttons[index].dispatchEvent(click)
     }
 
+    function returnToHomeScreen () {
+        window.location.href = '/';
+    }
+
+    homeScreenBtn.addEventListener('click', function() {
+        returnToHomeScreen();
+    });
+
     continueBtn.addEventListener('click', function () {
-       switchButtons(currentIndex+1)
+        switchButtons(currentIndex+1)
     });
 
     backBtn.addEventListener('click', function () {
@@ -36,6 +57,8 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         switchButtons(currentIndex-1)
     })
+
+
 
     applyBtn.addEventListener('click', function() {
         document.getElementById('container-applications').style.display = 'none';
@@ -48,6 +71,11 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('container-application-form').style.display = 'none';
         document.getElementById('container-applications').style.display = 'block';
         applyBtn.style.display = 'block';
+    });
+
+    sendApplicationBtn.addEventListener('click', function () {
+        document.getElementById('container-application-form').style.display = 'none';
+        document.getElementById('successful-application-container').style.display = 'block';
     });
 
     /* Progress bar filling */
@@ -142,7 +170,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     /* Data retrieval for review and database */
 
-        function saveContactInfo() {
+    function saveContactInfo() {
         contact.fullName = document.getElementById('name-field').value;
         contact.streetName = document.getElementById('street-field').value;
         contact.houseNumber = document.getElementById('house-field').value;

@@ -241,12 +241,28 @@
     color: #FFFFFF;
 }
 
-.continue-btn {
+.continue-btn, .send-application-btn, .home-screen-btn {
     background-color: var(--red_color);
     color: #FFFFFF;
 }
 
-.continue-btn:hover {
+.continue-btn:hover, .send-application-btn:hover, .home-screen-btn:hover {
     background-color: var(--red_color);
     border: 2px solid white;
+}
+
+.send-application-btn {
+    display: none;
+}
+
+.successful-application-container {
+    display: none;
+}
+
+.successful-application-info {
+    display: flex;
+    flex-direction: column;
+    height: 80vh;
+    justify-content: center;
+    align-items: center;
 }
